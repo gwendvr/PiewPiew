@@ -35,6 +35,15 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""360e23a6-105a-4902-9c99-882d33f2454a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -103,6 +112,28 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad9760c9-866d-4af3-a6df-35ba0c2a3b9f"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3dbc3315-0cb5-4a81-b171-b9876e3b49be"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -118,6 +149,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         // PlayerController
         m_PlayerController = asset.FindActionMap("PlayerController", throwIfNotFound: true);
         m_PlayerController_Move = m_PlayerController.FindAction("Move", throwIfNotFound: true);
+        m_PlayerController_Rotate = m_PlayerController.FindAction("Rotate", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
     }
@@ -188,11 +220,13 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerController;
     private List<IPlayerControllerActions> m_PlayerControllerActionsCallbackInterfaces = new List<IPlayerControllerActions>();
     private readonly InputAction m_PlayerController_Move;
+    private readonly InputAction m_PlayerController_Rotate;
     public struct PlayerControllerActions
     {
         private @PlayerControlMap m_Wrapper;
         public PlayerControllerActions(@PlayerControlMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerController_Move;
+        public InputAction @Rotate => m_Wrapper.m_PlayerController_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -205,6 +239,9 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
         }
 
         private void UnregisterCallbacks(IPlayerControllerActions instance)
@@ -212,6 +249,9 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
         }
 
         public void RemoveCallbacks(IPlayerControllerActions instance)
@@ -270,6 +310,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
     public interface IPlayerControllerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
