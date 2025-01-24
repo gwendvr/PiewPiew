@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,6 +27,12 @@ public class S_PlayerController : MonoBehaviour
     [Header("Rotation")]
     private Vector2 m_rotationInput;
     private bool m_useMousePos;
+
+    [Header("Weapon")]
+    private S_Weapon m_weapon;
+    private List<S_Weapon> m_weaponOnGround = new List<S_Weapon>();
+    [SerializeField]
+    private Transform m_hand;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -88,4 +95,53 @@ public class S_PlayerController : MonoBehaviour
         m_useMousePos = false; // Take joystick input
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("Interact");
+            if (m_weapon != null) // Remove weapon in hand
+            {
+                m_weapon.Throw(transform.right);
+                m_weapon = null;
+            }
+
+            if (m_weaponOnGround.Count > 0) // Take weapon
+            {
+                m_weapon = m_weaponOnGround[0];
+                m_weaponOnGround.Remove(m_weapon);
+                m_weapon.transform.parent = m_hand;
+                m_weapon.Taken();
+            }
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (m_weapon != null) // Attack with Weapon
+        {
+            m_weapon.Shot();
+        }
+
+        else // Attack CaC with hands
+        {
+
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Weapon"))
+        {
+            m_weaponOnGround.Add(collision.gameObject.GetComponent<S_Weapon>());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Weapon"))
+        {
+            m_weaponOnGround.Remove(collision.gameObject.GetComponent<S_Weapon>());
+        }
+    }
 }
