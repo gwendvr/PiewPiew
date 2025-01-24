@@ -11,6 +11,13 @@ public class S_PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject m_visual;
 
+    [Header("Cursor")]
+    [SerializeField]
+    private GameObject m_target;
+    [SerializeField]
+    private float m_cursorDistance;
+
+
     [Header("Movement")]
     private Vector2 m_movementInput;
     [SerializeField]
@@ -20,7 +27,6 @@ public class S_PlayerController : MonoBehaviour
     private Vector2 m_rotationInput;
     private bool m_useMousePos;
 
-    public GameObject triangle;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,6 +52,9 @@ public class S_PlayerController : MonoBehaviour
             Vector3 _rotation = _mouseWorldPos - transform.position;
             float _rotZ = Mathf.Atan2(_rotation.y, _rotation.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, _rotZ);
+            _mouseWorldPos.z = 0;
+            m_target.transform.position = _mouseWorldPos;
+
         }
         #endregion
 
@@ -57,11 +66,9 @@ public class S_PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
             targetRotation = new Quaternion(targetRotation.x, targetRotation.y, targetRotation.z, targetRotation.w);
             transform.rotation = targetRotation;
+            m_target.transform.position = _lookAtPos * m_cursorDistance;
         }
         #endregion
-
-        //triangle.transform.position = _lookAtPos;
-        //Transform _newTransform = transform.LookAt(triangle.transform.position);
 
         #endregion
     }
