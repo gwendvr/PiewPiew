@@ -1,0 +1,135 @@
+{
+    "name": "PlayerControlMap",
+    "maps": [
+        {
+            "name": "PlayerController",
+            "id": "1a748b94-26d4-4d6d-bb1a-f687481c2153",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "f427c9eb-74b9-4613-a7a6-5c3393788a68",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RotateMouse",
+                    "type": "Value",
+                    "id": "360e23a6-105a-4902-9c99-882d33f2454a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RotateJoystick",
+                    "type": "Value",
+                    "id": "fb8f46ca-9a74-463f-a26a-a6acbaae9f73",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "97f023e8-a87f-4b6e-9942-a1fd6238b87c",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "579c5f9e-5aa3-4e90-b701-334edac76366",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "f2da01fc-1da2-4b8b-84d8-1994d42bde41",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "1d3cd0d1-461b-4b88-902c-91ab3bae72f0",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "357eee30-97ac-4c3b-ba17-b489285b6801",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7581d5a6-67f4-420f-9a9a-95459508037d",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "3dbc3315-0cb5-4a81-b171-b9876e3b49be",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86b8919c-13cf-4848-8729-873db5191caf",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateJoystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "af52a01b-a807-4676-b42d-4b79200795a7",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}
