@@ -16,8 +16,8 @@ MonoBehaviour:
   topSprite: {fileID: 2073061810713329565, guid: 2ae7bca43aa5eb3409dfa40628d605f4, type: 3}
   damage: 5
   nbBullet: 1
-  angleMin: -5
-  angleMax: 5
-  range: 20
-  bulletSpeed: 5
+  coneAngle: 5
+  range: 1.5
+  bulletSpeed: 15
   throwStrenght: 50
+  shotCouldown: 0.45

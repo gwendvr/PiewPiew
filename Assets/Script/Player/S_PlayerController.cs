@@ -118,14 +118,17 @@ public class S_PlayerController : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (m_weapon != null) // Attack with Weapon
+        if (context.started)
         {
-            m_weapon.Shot();
-        }
+            if (m_weapon != null) // Attack with Weapon
+            {
+                m_weapon.Shot(transform.rotation.eulerAngles.z - 90); // Player rotated 90° so re-rotate the Z axis to make the bullet shot forward
+            }
 
-        else // Attack CaC with hands
-        {
+            else // Attack CaC with hands
+            {
 
+            }
         }
     }
 

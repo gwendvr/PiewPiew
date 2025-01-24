@@ -7,10 +7,37 @@ public class S_Weapon : MonoBehaviour
     private SpriteRenderer m_spriteRenderer;
     [SerializeField]
     private Rigidbody2D m_rb;
+    private float m_timeSinceLastShot;
+    [SerializeField]
+    private Transform m_bulletSpawn;
 
-    public void Shot()
+    private void FixedUpdate()
     {
+        m_timeSinceLastShot += Time.fixedDeltaTime;
+    }
 
+    public void Shot(float _rotZ)
+    {
+        if (m_timeSinceLastShot < data.shotCouldown) return; // If couldown isn't finished, don't shot
+        int i = 0;
+
+        while (i < data.nbBullet) // Shot all bullets needed
+        {
+            S_Bullet _bullet = S_PoolingSystem.instance.GetBullet();
+            _bullet.transform.position = m_bulletSpawn.position;
+            _bullet.transform.rotation = m_bulletSpawn.rotation;
+
+            // Get random angle
+            float _minAngle = _rotZ - (data.coneAngle / 2);
+            float _maxAngle = _rotZ + (data.coneAngle / 2);
+            float _angle = Random.Range(_minAngle, _maxAngle);
+            print("rotation : " + _rotZ + " | min : " + _minAngle + " | max : " + _maxAngle + " | angle : " + _angle);
+            Quaternion _rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, _angle);
+
+            _bullet.transform.rotation = _rotation;
+            _bullet.Shot(data);
+            i++;
+        }
     }
 
     public void Taken()

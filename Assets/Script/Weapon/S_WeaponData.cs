@@ -7,9 +7,9 @@ public class S_WeaponData : ScriptableObject
     public Sprite topSprite;
     public float damage;
     public int nbBullet;
-    public float angleMin;
-    public float angleMax;
+    public float coneAngle;
     public float range;
     public float bulletSpeed;
     public float throwStrenght;
+    public float shotCouldown;
 }
