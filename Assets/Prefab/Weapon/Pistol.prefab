@@ -83,6 +83,7 @@ MonoBehaviour:
   m_spriteRenderer: {fileID: 6314186671106622894}
   m_rb: {fileID: 51048730569463339}
   m_bulletSpawn: {fileID: 1681495622694152250}
+  particle: {fileID: 4898493575717597362, guid: 0967cfbac914ab245bb6affb849884a2, type: 3}
 --- !u!61 &5350814809958641477
 BoxCollider2D:
   m_ObjectHideFlags: 0

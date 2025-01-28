@@ -3,13 +3,22 @@ using UnityEngine;
 public class S_Weapon : MonoBehaviour
 {
     public S_WeaponData data;
+
+    [Header("Components")]
     [SerializeField]
     private SpriteRenderer m_spriteRenderer;
     [SerializeField]
     private Rigidbody2D m_rb;
+
+
+    [Header("Bullet")]
     private float m_timeSinceLastShot;
     [SerializeField]
     private Transform m_bulletSpawn;
+    [SerializeField]
+    private S_BulletParticle particle;
+    private int bulletShot;
+
 
     private void FixedUpdate()
     {
@@ -21,28 +30,44 @@ public class S_Weapon : MonoBehaviour
         if (m_timeSinceLastShot < data.shotCouldown) return; // If couldown isn't finished, don't shot
         int i = 0;
 
-        while (i < data.nbBullet) // Shot all bullets needed
+        while (i < data.bulletPerShot) // Shot all bullets needed
         {
-            S_Bullet _bullet = S_PoolingSystem.instance.GetBullet();
-            _bullet.transform.position = m_bulletSpawn.position;
-            _bullet.transform.rotation = m_bulletSpawn.rotation;
+            if (data.bulletInMagazine > bulletShot)
+            {
+                S_Bullet _bullet = S_PoolingSystem.instance.GetBullet();
+                _bullet.transform.position = m_bulletSpawn.position;
+                _bullet.transform.rotation = m_bulletSpawn.rotation;
 
-            // Get random angle
-            float _minAngle = _rotZ - (data.coneAngle / 2);
-            float _maxAngle = _rotZ + (data.coneAngle / 2);
-            float _angle = Random.Range(_minAngle, _maxAngle);
-            print("rotation : " + _rotZ + " | min : " + _minAngle + " | max : " + _maxAngle + " | angle : " + _angle);
-            Quaternion _rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, _angle);
+                // Get random angle
+                float _minAngle = _rotZ - (data.coneAngle / 2);
+                float _maxAngle = _rotZ + (data.coneAngle / 2);
+                float _angle = Random.Range(_minAngle, _maxAngle);
+                Quaternion _rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, _angle);
 
-            _bullet.transform.rotation = _rotation;
-            _bullet.Shot(data);
-            i++;
+                _bullet.transform.rotation = _rotation;
+                _bullet.StartTrail();
+                _bullet.Shot(data);
+                bulletShot++;
+
+                i++;
+            }
+
+            else
+            {
+                i = data.bulletPerShot;
+            }
         }
+        if (data.bulletInMagazine > bulletShot)
+        {
+            S_BulletParticle _particle = S_ParticlePoolingSystem.instance.GetParticle();
+            _particle.transform.position = transform.position;
+            _particle.transform.rotation = transform.rotation;
+        }
+        m_timeSinceLastShot = 0;
     }
 
     public void Taken()
     {
-        Debug.Log("Take");
         m_rb.bodyType = RigidbodyType2D.Kinematic;
         m_spriteRenderer.sprite = data.topSprite;
         transform.position = transform.parent.position;
@@ -51,7 +76,6 @@ public class S_Weapon : MonoBehaviour
 
     public void Throw(Vector2 _throwDirection)
     {
-        Debug.Log("Throw");
         m_rb.bodyType = RigidbodyType2D.Dynamic;
         transform.parent = null;
         m_spriteRenderer.sprite = data.frontSprite;

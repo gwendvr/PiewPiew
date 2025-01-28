@@ -6,6 +6,8 @@ public class S_Bullet : MonoBehaviour
     [SerializeField]
     private Rigidbody2D m_rb;
     private float m_timeAlive;
+    [SerializeField]
+    private TrailRenderer m_trail;
 
     private void FixedUpdate()
     {
@@ -33,4 +35,17 @@ public class S_Bullet : MonoBehaviour
         m_timeAlive = 0f;
         transform.parent = null;
     }
+
+    #region Trail
+
+    public void StopTrail()
+    {
+        m_trail.emitting = false;
+    }
+
+    public void StartTrail()
+    {
+        m_trail.emitting = true;
+    }
+    #endregion
 }

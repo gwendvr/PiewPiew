@@ -37,6 +37,7 @@ public class S_PoolingSystem : MonoBehaviour
     public void AddAvailableBullet(S_Bullet _bullet)
     {
         m_availableBullet.Add(_bullet);
+        _bullet.StopTrail();
         _bullet.transform.parent = transform;
         _bullet.gameObject.SetActive(false);
     }

@@ -832,6 +832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1855257579}
   - component: {fileID: 1855257580}
+  - component: {fileID: 1855257581}
   m_Layer: 0
   m_Name: PoolingSystem
   m_TagString: Untagged
@@ -867,6 +868,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bullet: {fileID: 7983601503199722833, guid: ca648423568f2d84598aa4fb71205c81, type: 3}
+--- !u!114 &1855257581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855257578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0881fdd6d9addb4288790b6d6c616d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_particle: {fileID: 4898493575717597362, guid: 0967cfbac914ab245bb6affb849884a2, type: 3}
 --- !u!1001 &2022872492
 PrefabInstance:
   m_ObjectHideFlags: 0

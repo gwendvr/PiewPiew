@@ -33,6 +33,7 @@ public class S_PlayerController : MonoBehaviour
     private List<S_Weapon> m_weaponOnGround = new List<S_Weapon>();
     [SerializeField]
     private Transform m_hand;
+    private bool m_isShooting = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -78,8 +79,16 @@ public class S_PlayerController : MonoBehaviour
         #endregion
 
         #endregion
+
+        #region Shot
+        if(m_isShooting)
+        {
+            m_weapon.Shot(transform.rotation.eulerAngles.z - 90); // Player rotated 90° so re-rotate the Z axis to make the bullet shot forward
+        }
+        #endregion
     }
 
+    #region Input
     public void OnMove(InputAction.CallbackContext context)
     {
         m_movementInput = context.ReadValue<Vector2>(); // Get WASD input normalized
@@ -99,7 +108,7 @@ public class S_PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("Interact");
+            Debug.Log("---Interact---");
             if (m_weapon != null) // Remove weapon in hand
             {
                 m_weapon.Throw(transform.right);
@@ -122,7 +131,7 @@ public class S_PlayerController : MonoBehaviour
         {
             if (m_weapon != null) // Attack with Weapon
             {
-                m_weapon.Shot(transform.rotation.eulerAngles.z - 90); // Player rotated 90° so re-rotate the Z axis to make the bullet shot forward
+                m_isShooting = true; // LMB pressed
             }
 
             else // Attack CaC with hands
@@ -130,7 +139,13 @@ public class S_PlayerController : MonoBehaviour
 
             }
         }
+        else if(context.canceled)
+        {
+            m_isShooting = false; // LMB released
+        }
     }
+
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
