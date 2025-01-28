@@ -35,6 +35,11 @@ public class S_PlayerController : MonoBehaviour
     private Transform m_hand;
     private bool m_isShooting = false;
 
+    [Header("Dimension")]
+    private bool isDimension1 = true;
+    [SerializeField]
+    private GameObject m_dimensionFilter;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -86,6 +91,7 @@ public class S_PlayerController : MonoBehaviour
             m_weapon.Shot(transform.rotation.eulerAngles.z - 90); // Player rotated 90° so re-rotate the Z axis to make the bullet shot forward
         }
         #endregion
+
     }
 
     #region Input
@@ -143,6 +149,26 @@ public class S_PlayerController : MonoBehaviour
         {
             m_isShooting = false; // LMB released
         }
+    }
+
+    public void SwitchDimension(InputAction.CallbackContext context)
+    {
+        isDimension1 = !isDimension1;
+        S_AudioManager _audioManager = S_AudioManager.instance;
+
+        if (isDimension1)
+        {
+            _audioManager.PlayAudioAtSecond("MainThemeDimension1", _audioManager.GetAudioTime("MainThemeDimension2"));
+            _audioManager.StopAudio("MainThemeDimension2");
+            m_dimensionFilter.SetActive(false);
+        }
+        else
+        {
+            _audioManager.PlayAudioAtSecond("MainThemeDimension2", _audioManager.GetAudioTime("MainThemeDimension1"));
+            _audioManager.StopAudio("MainThemeDimension1");
+            m_dimensionFilter.SetActive(true);
+        }
+
     }
 
     #endregion
