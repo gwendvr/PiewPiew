@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3321825561995611638}
   - component: {fileID: 144156256439507892}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327865766574775335}
   - component: {fileID: 4537625146429635695}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2045349393085732983}
   m_Father: {fileID: 4479054138426604275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &4537625146429635695
@@ -174,6 +175,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3210841908593824857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045349393085732983}
+  m_Layer: 7
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2045349393085732983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3210841908593824857}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.432, y: 0.205, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 327865766574775335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6085292048166723168
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,8 +219,8 @@ GameObject:
   - component: {fileID: 3877026485130247651}
   - component: {fileID: 3011908712077259517}
   - component: {fileID: 6191087956875477450}
-  m_Layer: 0
-  m_Name: Player
+  m_Layer: 7
+  m_Name: PlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,8 +256,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_visual: {fileID: 2332050715115443753}
+  m_target: {fileID: 0}
+  m_cursorDistance: 0
   m_movementSpeed: 0.1
-  triangle: {fileID: 1460379835711582034}
+  m_hand: {fileID: 2045349393085732983}
 --- !u!114 &3877026485130247651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +333,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fb8f46ca-9a74-463f-a26a-a6acbaae9f73
     m_ActionName: PlayerController/RotateJoystick
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5508854565593508474}
+        m_TargetAssemblyTypeName: S_PlayerController, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: aeb9792f-591d-42da-98ba-159fca73482c
+    m_ActionName: 'PlayerController/Interact[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5508854565593508474}
+        m_TargetAssemblyTypeName: S_PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d4855cb2-cbf7-478a-ac7a-bbb31ec30933
+    m_ActionName: 'PlayerController/Attack[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerController

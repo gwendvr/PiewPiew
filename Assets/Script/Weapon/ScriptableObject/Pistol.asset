@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7345f54c6da104786bc96be98135bc, type: 3}
+  m_Name: Pistol
+  m_EditorClassIdentifier: 
+  frontSprite: {fileID: 9120920593087933062, guid: 78dc027295c7a864caf46d6a6d6dd72d, type: 3}
+  topSprite: {fileID: 2073061810713329565, guid: 2ae7bca43aa5eb3409dfa40628d605f4, type: 3}
+  damage: 5
+  bulletPerShot: 1
+  coneAngle: 5
+  range: 1.5
+  bulletSpeed: 15
+  throwStrenght: 50
+  shotCouldown: 0.45
+  bulletInMagazine: 12

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,13 @@ public class S_PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject m_visual;
 
+    [Header("Cursor")]
+    [SerializeField]
+    private GameObject m_target;
+    [SerializeField]
+    private float m_cursorDistance;
+
+
     [Header("Movement")]
     private Vector2 m_movementInput;
     [SerializeField]
@@ -20,7 +28,13 @@ public class S_PlayerController : MonoBehaviour
     private Vector2 m_rotationInput;
     private bool m_useMousePos;
 
-    public GameObject triangle;
+    [Header("Weapon")]
+    private S_Weapon m_weapon;
+    private List<S_Weapon> m_weaponOnGround = new List<S_Weapon>();
+    [SerializeField]
+    private Transform m_hand;
+    private bool m_isShooting = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,6 +60,9 @@ public class S_PlayerController : MonoBehaviour
             Vector3 _rotation = _mouseWorldPos - transform.position;
             float _rotZ = Mathf.Atan2(_rotation.y, _rotation.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, _rotZ);
+            _mouseWorldPos.z = 0;
+            m_target.transform.position = _mouseWorldPos;
+
         }
         #endregion
 
@@ -57,15 +74,21 @@ public class S_PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
             targetRotation = new Quaternion(targetRotation.x, targetRotation.y, targetRotation.z, targetRotation.w);
             transform.rotation = targetRotation;
+            m_target.transform.position = _lookAtPos * m_cursorDistance;
         }
         #endregion
 
-        //triangle.transform.position = _lookAtPos;
-        //Transform _newTransform = transform.LookAt(triangle.transform.position);
+        #endregion
 
+        #region Shot
+        if(m_isShooting)
+        {
+            m_weapon.Shot(transform.rotation.eulerAngles.z - 90); // Player rotated 90° so re-rotate the Z axis to make the bullet shot forward
+        }
         #endregion
     }
 
+    #region Input
     public void OnMove(InputAction.CallbackContext context)
     {
         m_movementInput = context.ReadValue<Vector2>(); // Get WASD input normalized
@@ -81,4 +104,62 @@ public class S_PlayerController : MonoBehaviour
         m_useMousePos = false; // Take joystick input
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("---Interact---");
+            if (m_weapon != null) // Remove weapon in hand
+            {
+                m_weapon.Throw(transform.right);
+                m_weapon = null;
+            }
+
+            if (m_weaponOnGround.Count > 0) // Take weapon
+            {
+                m_weapon = m_weaponOnGround[0];
+                m_weaponOnGround.Remove(m_weapon);
+                m_weapon.transform.parent = m_hand;
+                m_weapon.Taken();
+            }
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (m_weapon != null) // Attack with Weapon
+            {
+                m_isShooting = true; // LMB pressed
+            }
+
+            else // Attack CaC with hands
+            {
+
+            }
+        }
+        else if(context.canceled)
+        {
+            m_isShooting = false; // LMB released
+        }
+    }
+
+    #endregion
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Weapon"))
+        {
+            m_weaponOnGround.Add(collision.gameObject.GetComponent<S_Weapon>());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Weapon"))
+        {
+            m_weaponOnGround.Remove(collision.gameObject.GetComponent<S_Weapon>());
+        }
+    }
 }
