@@ -71,6 +71,15 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchDimension"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4047e71-3edd-4a3d-afd9-06acd3763363"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -216,6 +225,28 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8db79b88-1f75-483e-bfad-a9a2ffec17a3"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchDimension"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10147e4a-13d6-4492-b2d4-7461754a90b1"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchDimension"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -235,6 +266,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         m_PlayerController_RotateJoystick = m_PlayerController.FindAction("RotateJoystick", throwIfNotFound: true);
         m_PlayerController_Interact = m_PlayerController.FindAction("Interact", throwIfNotFound: true);
         m_PlayerController_Attack = m_PlayerController.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerController_SwitchDimension = m_PlayerController.FindAction("SwitchDimension", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
     }
@@ -309,6 +341,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerController_RotateJoystick;
     private readonly InputAction m_PlayerController_Interact;
     private readonly InputAction m_PlayerController_Attack;
+    private readonly InputAction m_PlayerController_SwitchDimension;
     public struct PlayerControllerActions
     {
         private @PlayerControlMap m_Wrapper;
@@ -318,6 +351,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         public InputAction @RotateJoystick => m_Wrapper.m_PlayerController_RotateJoystick;
         public InputAction @Interact => m_Wrapper.m_PlayerController_Interact;
         public InputAction @Attack => m_Wrapper.m_PlayerController_Attack;
+        public InputAction @SwitchDimension => m_Wrapper.m_PlayerController_SwitchDimension;
         public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -342,6 +376,9 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @SwitchDimension.started += instance.OnSwitchDimension;
+            @SwitchDimension.performed += instance.OnSwitchDimension;
+            @SwitchDimension.canceled += instance.OnSwitchDimension;
         }
 
         private void UnregisterCallbacks(IPlayerControllerActions instance)
@@ -361,6 +398,9 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @SwitchDimension.started -= instance.OnSwitchDimension;
+            @SwitchDimension.performed -= instance.OnSwitchDimension;
+            @SwitchDimension.canceled -= instance.OnSwitchDimension;
         }
 
         public void RemoveCallbacks(IPlayerControllerActions instance)
@@ -423,6 +463,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         void OnRotateJoystick(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnSwitchDimension(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
