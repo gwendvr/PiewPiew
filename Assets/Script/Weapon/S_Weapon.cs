@@ -28,7 +28,9 @@ public class S_Weapon : MonoBehaviour
     public void Shot(float _rotZ)
     {
         if (m_timeSinceLastShot < data.shotCouldown) return; // If couldown isn't finished, don't shot
+        if (data.bulletInMagazine <= 0) return; // no more ammo
         int i = 0;
+        S_CameraBehaviour.instance.Shot();
 
         while (i < data.bulletPerShot) // Shot all bullets needed
         {
