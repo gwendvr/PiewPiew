@@ -18,7 +18,12 @@ public class S_Weapon : MonoBehaviour
     [SerializeField]
     private S_BulletParticle particle;
     private int bulletShot;
+    private S_PoolingSystem m_poolingSystem;
 
+    private void Start()
+    {
+        m_poolingSystem = S_PoolingSystem.instance;
+    }
 
     private void FixedUpdate()
     {
