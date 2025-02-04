@@ -20,5 +20,5 @@ MonoBehaviour:
   range: 1.5
   bulletSpeed: 15
   throwStrenght: 50
-  shotCouldown: 0.45
+  shotCouldown: 0.4
   bulletInMagazine: 12
