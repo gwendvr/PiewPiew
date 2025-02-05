@@ -12,7 +12,7 @@ public class S_EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnEnemies();
+        /*SpawnEnemies();*/
     }
 
     // Enemy spawner for all universe

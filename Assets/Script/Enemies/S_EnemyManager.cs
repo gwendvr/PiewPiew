@@ -26,7 +26,6 @@ public class S_EnemyManager : MonoBehaviour
     void Update()
     {
         StartCoroutine(Wait());
-        Debug.Log(GetEnemyCount("Violet"));
     }
 
     // Register enemies by universe to differentiate them
