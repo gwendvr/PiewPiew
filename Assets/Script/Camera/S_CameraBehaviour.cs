@@ -12,7 +12,8 @@ public class S_CameraBehaviour : MonoBehaviour
     private Volume m_volume;
     [SerializeField]
     private float m_effectDuration;
-    private bool isShooting;
+    private bool m_isShooting;
+    private bool m_isDashing;
     [Header("Chromatic Aberation")]
     private ChromaticAberration m_chromaticAberation;
     [Range(1, 1)]
@@ -58,29 +59,67 @@ public class S_CameraBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (!isShooting && m_chromaticAberation != null && m_lensDistortion != null)
+        // SHOT
+        if (!m_isShooting && m_chromaticAberation != null && m_lensDistortion != null)
         {
-            m_chromaticAberation.intensity.value = Mathf.Lerp(m_chromaticAberation.intensity.value, 0, m_resetChromaticAberationSpeed);
-            m_lensDistortion.intensity.value = Mathf.Lerp(m_lensDistortion.intensity.value, 0, m_resetLensDistortionSpeed);
+            if(m_chromaticAberation.intensity.value < 0.005f)
+            {
+                m_chromaticAberation.intensity.value = 0;
+            }
+            else m_chromaticAberation.intensity.value = Mathf.Lerp(m_chromaticAberation.intensity.value, 0, m_resetChromaticAberationSpeed);
+            if (m_lensDistortion.intensity.value < 0.005f)
+            {
+                m_lensDistortion.intensity.value = 0;
+            }
+            else m_lensDistortion.intensity.value = Mathf.Lerp(m_lensDistortion.intensity.value, 0, m_resetLensDistortionSpeed);
         }
 
-        else if (isShooting && m_chromaticAberation != null && m_lensDistortion != null)
+        else if (m_isShooting && m_chromaticAberation != null && m_lensDistortion != null)
         {
             m_chromaticAberation.intensity.value = Mathf.Lerp(m_chromaticAberation.intensity.value, m_AdditionnalChromaticAberation, m_chromaticAberationSpeed);
             m_lensDistortion.intensity.value = Mathf.Lerp(m_lensDistortion.intensity.value, m_AdditionnalLensDistortion, m_lensDistortionSpeed);
+        }
+
+
+        // DASH
+        if (!m_isDashing && m_lensDistortion != null)
+        {
+            if (m_lensDistortion.intensity.value < 0.005f)
+            {
+                m_lensDistortion.intensity.value = 0;
+            }
+            else m_lensDistortion.intensity.value = Mathf.Lerp(m_lensDistortion.intensity.value, 0, m_resetLensDistortionSpeed);
+        }
+
+        else if (m_isDashing && m_lensDistortion != null)
+        {
+            m_lensDistortion.intensity.value = Mathf.Lerp(m_lensDistortion.intensity.value, m_AdditionnalLensDistortion * 0.5f, m_lensDistortionSpeed);
         }
     }
 
     public void Shot()
     {
-        isShooting = true;
+        m_isShooting = true;
         if(m_coroutine != null) StopCoroutine(m_coroutine);
-        m_coroutine = StartCoroutine(Wait());
+        m_coroutine = StartCoroutine(WaitShot());
     }
 
-    private IEnumerator Wait()
+    private IEnumerator WaitShot()
     {
         yield return new WaitForSeconds(m_effectDuration);
-        isShooting = false;
+        m_isShooting = false;
+    }
+
+    public void Dash(float _dashDuration)
+    {
+        m_isDashing = true;
+        if (m_coroutine != null) StopCoroutine(m_coroutine);
+        m_coroutine = StartCoroutine(WaitDash(_dashDuration));
+    }
+
+    private IEnumerator WaitDash(float _dashDuration)
+    {
+        yield return new WaitForSeconds(_dashDuration);
+        m_isDashing = false;
     }
 }

@@ -1,7 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
 
@@ -23,6 +26,7 @@ public class S_PlayerController : MonoBehaviour
     private Vector2 m_movementInput;
     [SerializeField]
     private float m_movementSpeed;
+    private Vector2 m_nextPosition;
 
     [Header("Rotation")]
     private Vector2 m_rotationInput;
@@ -40,26 +44,43 @@ public class S_PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject m_dimensionFilter;
 
+    [Header("Dash")]
+    private bool m_isDashing;
+    private Vector2 m_dashDirection;
+    [SerializeField]
+    private float m_dashStrength;
+    [SerializeField]
+    private float m_dashDuration;
+    [SerializeField]
+    private GameObject m_fxEffect;
+    private ParticleSystem m_particleSystem;
+    private TrailRenderer m_trailRenderer;
+    [SerializeField]
+    private float m_dashZoom;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        m_particleSystem =  m_fxEffect.GetComponent<ParticleSystem>();
+        m_trailRenderer = m_fxEffect.GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         #region Position
-        Vector2 _pos = new Vector2(m_rb.position.x + (m_movementInput.x * m_movementSpeed), m_rb.position.y + (m_movementInput.y * m_movementSpeed));
-        m_rb.MovePosition(_pos);
+        m_nextPosition = new Vector2(m_rb.position.x + (m_movementInput.x * m_movementSpeed), m_rb.position.y + (m_movementInput.y * m_movementSpeed));
+        transform.position = m_nextPosition;
         #endregion
 
         #region Rotation
 
         #region Rotate with mouse
         Vector2 _lookAtPos = new Vector2(0, 0);
-        if (m_useMousePos) 
+        if (m_useMousePos)
         {
             Vector3 _mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 _rotation = _mouseWorldPos - transform.position;
@@ -86,13 +107,22 @@ public class S_PlayerController : MonoBehaviour
         #endregion
 
         #region Shot
-        if(m_isShooting)
+        if (m_isShooting)
         {
             m_weapon.Shot(transform.rotation.eulerAngles.z - 90); // Player rotated 90° so re-rotate the Z axis to make the bullet shot forward
         }
         #endregion
 
+        #region Capacity
+        if(m_isDashing)
+        {
+            m_isDashing = false;
+            S_CameraBehaviour.instance.Dash(m_dashDuration);
+        }
+        #endregion
+
     }
+
 
     #region Input
     public void OnMove(InputAction.CallbackContext context)
@@ -114,7 +144,6 @@ public class S_PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("---Interact---");
             if (m_weapon != null) // Remove weapon in hand
             {
                 m_weapon.Throw(transform.right);
@@ -145,7 +174,7 @@ public class S_PlayerController : MonoBehaviour
 
             }
         }
-        else if(context.canceled)
+        else if (context.canceled)
         {
             m_isShooting = false; // LMB released
         }
@@ -171,11 +200,52 @@ public class S_PlayerController : MonoBehaviour
 
     }
 
+    public void UseCapacity(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (isDimension1) // Use Dash
+            {
+                bool _dashForward = (m_movementInput.x == 0 && m_movementInput.y == 0);
+                if (_dashForward)
+                {
+                    // dash in cursor direction
+                    m_dashDirection = transform.right;
+                }
+                else
+                {
+                    // dash in walk direction
+                    m_dashDirection = m_movementInput;
+                }
+                m_rb.AddForce(m_dashDirection * m_dashStrength, ForceMode2D.Impulse);
+                if(m_particleSystem != null && m_trailRenderer != null)
+                {
+                    m_trailRenderer.emitting = true;
+                    m_particleSystem.Play();
+                    m_isDashing = true;
+                    StartCoroutine(DisableDashFX());
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+    }
+
+    private IEnumerator DisableDashFX()
+    {
+        yield return new WaitForSeconds(m_dashDuration);
+        m_particleSystem.Stop();
+        m_trailRenderer.emitting = false;
+    }
+
     #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Weapon"))
+        if (collision.CompareTag("Weapon"))
         {
             m_weaponOnGround.Add(collision.gameObject.GetComponent<S_Weapon>());
         }
