@@ -48,6 +48,9 @@ public class S_PlayerController : MonoBehaviour
     private bool m_isDashing;
     private Vector2 m_dashDirection;
     [SerializeField]
+    private float m_dashCouldown;
+    private float m_timeSinceLastDash;
+    [SerializeField]
     private float m_dashStrength;
     [SerializeField]
     private float m_dashDuration;
@@ -56,7 +59,7 @@ public class S_PlayerController : MonoBehaviour
     private ParticleSystem m_particleSystem;
     private TrailRenderer m_trailRenderer;
     [SerializeField]
-    private float m_dashZoom;
+    private RectTransform m_dashCouldownPicture;
 
 
 
@@ -66,6 +69,7 @@ public class S_PlayerController : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_particleSystem =  m_fxEffect.GetComponent<ParticleSystem>();
         m_trailRenderer = m_fxEffect.GetComponent<TrailRenderer>();
+        m_timeSinceLastDash = m_dashCouldown;
     }
 
     // Update is called once per frame
@@ -119,6 +123,16 @@ public class S_PlayerController : MonoBehaviour
             m_isDashing = false;
             S_CameraBehaviour.instance.Dash(m_dashDuration);
         }
+        else
+        {
+            m_timeSinceLastDash += Time.deltaTime;
+        }
+        if(m_timeSinceLastDash < m_dashCouldown)
+        {
+            m_dashCouldownPicture.sizeDelta = new Vector2(m_dashCouldownPicture.sizeDelta.x, 100 - (m_timeSinceLastDash * 100) / m_dashCouldown);
+        }
+        else m_dashCouldownPicture.sizeDelta = new Vector2(m_dashCouldownPicture.sizeDelta.x, 0);
+
         #endregion
 
     }
@@ -204,8 +218,9 @@ public class S_PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (isDimension1) // Use Dash
+            if (isDimension1 && m_timeSinceLastDash >= m_dashCouldown) // Use Dash
             {
+                m_timeSinceLastDash = 0;
                 bool _dashForward = (m_movementInput.x == 0 && m_movementInput.y == 0);
                 if (_dashForward)
                 {
