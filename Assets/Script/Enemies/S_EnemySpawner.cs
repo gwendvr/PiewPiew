@@ -10,6 +10,11 @@ public class S_EnemySpawner : MonoBehaviour
     private List<GameObject> m_spawnedEnemiesBlue = new List<GameObject>();
     private List<GameObject> m_spawnedEnemiesViolet = new List<GameObject>();
 
+    private void Start()
+    {
+        SpawnEnemies();
+    }
+
     // Enemy spawner for all universe
     public void SpawnEnemies()
     {
@@ -23,7 +28,7 @@ public class S_EnemySpawner : MonoBehaviour
         {
             GameObject _randomEnemyPrefab = blueUniverseEnemies[Random.Range(0, blueUniverseEnemies.Length)];
             GameObject _spawnedEnemy = Instantiate(_randomEnemyPrefab, _spawnPoint.position, _spawnPoint.rotation);
-            _spawnedEnemy.SetActive(false);
+            _spawnedEnemy.SetActive(true);
             m_spawnedEnemiesBlue.Add(_spawnedEnemy);
         }
 
