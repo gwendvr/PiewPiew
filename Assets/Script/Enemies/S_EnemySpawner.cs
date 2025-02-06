@@ -5,14 +5,15 @@ public class S_EnemySpawner : MonoBehaviour
 {
     public GameObject[] blueUniverseEnemies;
     public GameObject[] violetUniverseEnemies;
-    public Transform[] spawnPoints;
 
+    private GameObject[] spawnPoints;
     private List<GameObject> m_spawnedEnemiesBlue = new List<GameObject>();
     private List<GameObject> m_spawnedEnemiesViolet = new List<GameObject>();
 
     private void Start()
     {
-        /*SpawnEnemies();*/
+        spawnPoints = S_EnemyManager.instance.spawnPoints;
+        SpawnEnemies();
     }
 
     // Enemy spawner for all universe
@@ -26,17 +27,23 @@ public class S_EnemySpawner : MonoBehaviour
 
         foreach (var _spawnPoint in spawnPoints)
         {
+            var _pos = _spawnPoint.GetComponent<S_Path>();
             GameObject _randomEnemyPrefab = blueUniverseEnemies[Random.Range(0, blueUniverseEnemies.Length)];
-            GameObject _spawnedEnemy = Instantiate(_randomEnemyPrefab, _spawnPoint.position, _spawnPoint.rotation);
+            GameObject _spawnedEnemy = Instantiate(_randomEnemyPrefab, _pos.paths[0].transform.position, _pos.paths[0].transform.rotation);
             _spawnedEnemy.SetActive(true);
+            var enemy = _spawnedEnemy.GetComponent<S_Enemy>();
+            enemy.pathLinked = _spawnPoint.name;
             m_spawnedEnemiesBlue.Add(_spawnedEnemy);
         }
 
         foreach (var _spawnPoint in spawnPoints)
         {
+            var _pos = _spawnPoint.GetComponent<S_Path>();
             GameObject _randomEnemyPrefab = violetUniverseEnemies[Random.Range(0, violetUniverseEnemies.Length)];
-            GameObject _spawnedEnemy = Instantiate(_randomEnemyPrefab, _spawnPoint.position, _spawnPoint.rotation);
+            GameObject _spawnedEnemy = Instantiate(_randomEnemyPrefab, _pos.paths[0].transform.position, _pos.paths[0].transform.rotation);
             _spawnedEnemy.SetActive(false);
+            var enemy = _spawnedEnemy.GetComponent<S_Enemy>();
+            enemy.pathLinked = _spawnPoint.name;
             m_spawnedEnemiesViolet.Add(_spawnedEnemy);
         }
 

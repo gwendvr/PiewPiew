@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7500023866899122605}
   - component: {fileID: 5412444288869019673}
   - component: {fileID: 1413457988924860503}
+  - component: {fileID: 1986746749885134624}
   m_Layer: 0
   m_Name: V_Enemy1 1
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: -9136209539300322938, guid: c6a0854509c89d2438c2ddb43675c401, type: 3}
   m_Color: {r: 0.49499303, g: 0, b: 0.6792453, a: 1}
   m_FlipX: 0
@@ -149,6 +150,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: Violet
+  health: 1
+  player: {fileID: 0}
+  agent: {fileID: 1413457988924860503}
+  maxDistance: 4
+  minDistance: 1
+  distancePlayer: 0
 --- !u!195 &1413457988924860503
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -171,3 +178,15 @@ NavMeshAgent:
   m_BaseOffset: 0.22
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1986746749885134624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633577685476173289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

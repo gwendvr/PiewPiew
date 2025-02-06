@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7500023866899122605}
   - component: {fileID: 3237735827853564214}
   - component: {fileID: 7802113206544902058}
+  - component: {fileID: 8969739200569698973}
   m_Layer: 0
   m_Name: B_Enemy1
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: -9136209539300322938, guid: c6a0854509c89d2438c2ddb43675c401, type: 3}
   m_Color: {r: 0.41823888, g: 0.73353696, b: 1, a: 1}
   m_FlipX: 0
@@ -149,6 +150,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: Blue
+  health: 1
+  player: {fileID: 0}
+  agent: {fileID: 7802113206544902058}
+  maxDistance: 4
+  minDistance: 1
+  distancePlayer: 0
 --- !u!195 &7802113206544902058
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -171,3 +178,15 @@ NavMeshAgent:
   m_BaseOffset: 0.22
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8969739200569698973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633577685476173289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

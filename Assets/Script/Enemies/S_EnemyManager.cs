@@ -7,25 +7,22 @@ public class S_EnemyManager : MonoBehaviour
 {
     public static S_EnemyManager instance { get; private set; }
 
+    public string activeUniverse = "Blue";
+    public GameObject player;
+    public GameObject[] spawnPoints;
+
     private Dictionary<string, List<GameObject>> m_ennemiesByUniverse = new Dictionary<string, List<GameObject>>();
-    public string m_activeUniverse = "Blue";
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-    }
-
-    void Update()
-    {
-        StartCoroutine(Wait());
     }
 
     // Register enemies by universe to differentiate them
@@ -42,12 +39,12 @@ public class S_EnemyManager : MonoBehaviour
     // Change enemies when we change universe
     public void SetActiveUniverse(string _universe)
     {
-        if (m_activeUniverse == _universe) return;
+        if (activeUniverse == _universe) return;
 
-        if (m_ennemiesByUniverse.ContainsKey(m_activeUniverse))
+        if (m_ennemiesByUniverse.ContainsKey(activeUniverse))
         {
 
-            foreach (var _enemy in m_ennemiesByUniverse[m_activeUniverse])
+            foreach (var _enemy in m_ennemiesByUniverse[activeUniverse])
             {
                 _enemy.SetActive(false);
             }
@@ -61,7 +58,7 @@ public class S_EnemyManager : MonoBehaviour
             }
         }
 
-        m_activeUniverse = _universe;
+        activeUniverse = _universe;
     }
 
     // Get enemy count by universe
@@ -74,6 +71,7 @@ public class S_EnemyManager : MonoBehaviour
         return m_ennemiesByUniverse[_universe].Count;
     }
 
+    // Remove enemies detsroyed on dictionary
     public void RemoveEnemyFromUniverse(string _universe, GameObject _enemy)
     {
         if (m_ennemiesByUniverse.ContainsKey(_universe))
@@ -81,12 +79,5 @@ public class S_EnemyManager : MonoBehaviour
             m_ennemiesByUniverse[_universe].Remove(_enemy);
             Debug.Log("Ennemi supprimé du dictionnaire : " + _enemy.name);
         }
-    }
-
-    // Test universe change
-    private IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(5.0f);
-        SetActiveUniverse("Violet");
     }
 }
