@@ -260,7 +260,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""88fd9b13-f916-45dc-afbe-88225fd5f0c3"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -271,7 +271,18 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""eee690ee-b773-4ea6-920d-d7e4e2618d91"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Capacity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4bb347ac-d69c-4ad9-963e-41a56e3424b6"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
