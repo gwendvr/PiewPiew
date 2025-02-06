@@ -17,7 +17,7 @@ MonoBehaviour:
   damage: 5
   bulletPerShot: 1
   coneAngle: 5
-  range: 1.5
+  range: 2
   bulletSpeed: 15
   throwStrenght: 50
   shotCouldown: 0.4

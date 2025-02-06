@@ -28,7 +28,7 @@ public class S_Weapon : MonoBehaviour
     public void Shot(float _rotZ)
     {
         if (m_timeSinceLastShot < data.shotCouldown) return; // If couldown isn't finished, don't shot
-        if (data.bulletInMagazine <= 0) return; // no more ammo
+        if (bulletShot >= data.bulletInMagazine) return; // no more ammo
         int i = 0;
         S_CameraBehaviour.instance.Shot();
 
@@ -49,16 +49,17 @@ public class S_Weapon : MonoBehaviour
                 _bullet.transform.rotation = _rotation;
                 _bullet.StartTrail();
                 _bullet.Shot(data);
-                bulletShot++;
-
                 i++;
             }
+
 
             else
             {
                 i = data.bulletPerShot;
             }
         }
+        bulletShot++;
+
         if (data.bulletInMagazine > bulletShot)
         {
             S_BulletParticle _particle = S_ParticlePoolingSystem.instance.GetParticle();
