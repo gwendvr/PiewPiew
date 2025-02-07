@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 public class S_PlayerController : MonoBehaviour
@@ -14,9 +15,10 @@ public class S_PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject m_visual;
     private Rigidbody2D m_rb;
-    [SerializeField]
-    private float m_maxHealth;
+    //[SerializeField]
+    //private float m_maxHealth;
     private float m_currentHealth;
+    private S_PlayerData m_playerData;
 
     [Space(10)]
     [Header("Cursor")]
@@ -27,8 +29,8 @@ public class S_PlayerController : MonoBehaviour
 
     [Space(10)]
     [Header("Movement")]
-    [SerializeField]
-    private float m_movementSpeed;
+    //[SerializeField]
+    //private float m_movementSpeed;
     private Vector2 m_movementInput;
     private Vector2 m_nextPosition;
 
@@ -36,11 +38,25 @@ public class S_PlayerController : MonoBehaviour
     [Header("Rotation")]
     private Vector2 m_rotationInput;
     private bool m_useMousePos;
+    //[SerializeField] float m_rotationSpeed;
+
+    [Space(10)]
+    [Header("Attack")]
+    [SerializeField]
+    private float m_cqcDamage; // cqc = Close quarter combat
+    [SerializeField]
+    private float m_cqcRange;
+    [SerializeField]
+    private LayerMask m_ennemiesLayer;
+    [SerializeField]
+    private float m_cqcCouldown;
+    private float m_timeSinceLastAttack;
+    private bool m_isAttacking;
 
     [Space(10)]
     [Header("Weapon")]
     [SerializeField]
-    private Transform m_hand;
+    private UnityEngine.Transform m_hand;
     private S_Weapon m_weapon;
     private List<S_Weapon> m_weaponOnGround = new List<S_Weapon>();
     private bool m_isShooting = false;
@@ -54,8 +70,8 @@ public class S_PlayerController : MonoBehaviour
 
     [Space(10)]
     [Header("Dash")]
-    [SerializeField]
-    private float m_dashCouldown;
+    //[SerializeField]
+    //private float m_dashCouldown;
     private bool m_isDashing;
     private Vector2 m_dashDirection;
     private float m_timeSinceLastDash;
@@ -72,8 +88,8 @@ public class S_PlayerController : MonoBehaviour
 
     [Space(10)]
     [Header("CirculareAttack")]
-    [SerializeField]
-    private float m_circulareCouldown;
+    //[SerializeField]
+    //private float m_circulareCouldown;
     private bool m_isUsingCirculare;
     private float m_timeSinceLastCirculare;
     [SerializeField]
@@ -88,18 +104,19 @@ public class S_PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        m_currentHealth = m_playerData.maxHealth;
         m_rb = GetComponent<Rigidbody2D>();
-        m_dashParticleSystem =  m_dashFXEffect.GetComponent<ParticleSystem>();
+        m_dashParticleSystem = m_dashFXEffect.GetComponent<ParticleSystem>();
         m_dashTrailRenderer = m_dashFXEffect.GetComponent<TrailRenderer>();
-        m_timeSinceLastDash = m_dashCouldown;
-        m_timeSinceLastCirculare = m_circulareCouldown;
+        m_timeSinceLastDash = m_playerData.dashCouldown;
+        m_timeSinceLastCirculare = m_playerData.circulareCouldown;
     }
 
     // Update is called once per frame
     void Update()
     {
         #region Position
-        m_nextPosition = new Vector2(m_rb.position.x + (m_movementInput.x * m_movementSpeed), m_rb.position.y + (m_movementInput.y * m_movementSpeed));
+        m_nextPosition = new Vector2(m_rb.position.x + (m_movementInput.x * m_playerData.speed), m_rb.position.y + (m_movementInput.y * m_playerData.speed));
         transform.position = m_nextPosition;
         #endregion
 
@@ -112,7 +129,8 @@ public class S_PlayerController : MonoBehaviour
             Vector3 _mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 _rotation = _mouseWorldPos - transform.position;
             float _rotZ = Mathf.Atan2(_rotation.y, _rotation.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, _rotZ);
+            Quaternion _rot = Quaternion.Euler(0, 0, _rotZ);
+            transform.rotation = Quaternion.Lerp(transform.rotation, _rot, m_playerData.rotationSpeed);
             _mouseWorldPos.z = 0;
             m_target.transform.position = _mouseWorldPos;
 
@@ -126,7 +144,8 @@ public class S_PlayerController : MonoBehaviour
             float angle = Mathf.Atan2(m_rotationInput.y, m_rotationInput.x) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
             targetRotation = new Quaternion(targetRotation.x, targetRotation.y, targetRotation.z, targetRotation.w);
-            transform.rotation = targetRotation;
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, m_playerData.rotationSpeed);
             m_target.transform.position = _lookAtPos * m_cursorDistance;
         }
         #endregion
@@ -140,6 +159,23 @@ public class S_PlayerController : MonoBehaviour
         }
         #endregion
 
+        #region Attack
+        if (m_isAttacking && m_timeSinceLastAttack >= m_cqcCouldown)
+        {
+            if (Physics2D.Raycast(transform.position, transform.right, m_cqcRange, m_ennemiesLayer))
+            {
+                GameObject _hit = Physics2D.Raycast(transform.position, transform.right, m_cqcRange, m_ennemiesLayer).collider.gameObject;
+                Debug.Log(_hit);
+                if (_hit.CompareTag("Ennemy"))
+                {
+                    Debug.Log(m_cqcDamage);
+                }
+            }
+            m_timeSinceLastAttack = 0;
+        }
+        else m_timeSinceLastAttack += Time.deltaTime;
+        #endregion
+
         #region Capacity
         #region Dash
         if (m_isDashing)
@@ -151,11 +187,11 @@ public class S_PlayerController : MonoBehaviour
         {
             m_timeSinceLastDash += Time.deltaTime;
         }
-        if(m_timeSinceLastDash < m_dashCouldown && S_DimensionManager.instance.isDimension1)
+        if (m_timeSinceLastDash < m_playerData.dashCouldown && S_DimensionManager.instance.isDimension1)
         {
-            m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 100 - (m_timeSinceLastDash * 100) / m_dashCouldown);
+            m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 100 - (m_timeSinceLastDash * 100) / m_playerData.dashCouldown);
         }
-        else if(S_DimensionManager.instance.isDimension1) m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 0);
+        else if (S_DimensionManager.instance.isDimension1) m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 0);
         #endregion
 
         #region Circulare
@@ -167,13 +203,17 @@ public class S_PlayerController : MonoBehaviour
         {
             m_timeSinceLastCirculare += Time.deltaTime;
         }
-        if (m_timeSinceLastCirculare < m_circulareCouldown && !S_DimensionManager.instance.isDimension1)
+        if (m_timeSinceLastCirculare < m_playerData.circulareCouldown && !S_DimensionManager.instance.isDimension1)
         {
-            m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 100 - (m_timeSinceLastCirculare * 100) / m_circulareCouldown);
+            m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 100 - (m_timeSinceLastCirculare * 100) / m_playerData.circulareCouldown);
         }
         else if (!S_DimensionManager.instance.isDimension1) m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 0);
         #endregion
 
+        #endregion
+
+        #region Health
+        if(m_currentHealth > m_playerData.maxHealth) m_currentHealth = m_playerData.maxHealth;
         #endregion
     }
 
@@ -225,12 +265,13 @@ public class S_PlayerController : MonoBehaviour
 
             else // Attack CaC with hands
             {
-
+                m_isAttacking = true;
             }
         }
         else if (context.canceled)
         {
             m_isShooting = false; // LMB released
+            m_isAttacking = false;
         }
     }
 
@@ -243,7 +284,7 @@ public class S_PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (S_DimensionManager.instance.isDimension1 && m_timeSinceLastDash >= m_dashCouldown) // Use Dash
+            if (S_DimensionManager.instance.isDimension1 && m_timeSinceLastDash >= m_playerData.dashCouldown) // Use Dash
             {
                 m_timeSinceLastDash = 0;
                 bool _dashForward = (m_movementInput.x == 0 && m_movementInput.y == 0);
@@ -258,7 +299,7 @@ public class S_PlayerController : MonoBehaviour
                     m_dashDirection = m_movementInput;
                 }
                 m_rb.AddForce(m_dashDirection * m_dashStrength, ForceMode2D.Impulse);
-                if(m_dashParticleSystem != null && m_dashTrailRenderer != null)
+                if (m_dashParticleSystem != null && m_dashTrailRenderer != null)
                 {
                     m_dashTrailRenderer.emitting = true;
                     m_dashParticleSystem.Play();
@@ -266,9 +307,9 @@ public class S_PlayerController : MonoBehaviour
                     StartCoroutine(DisableDashFX());
                 }
             }
-            else if(!S_DimensionManager.instance.isDimension1) // Use CirculareAttack
+            else if (!S_DimensionManager.instance.isDimension1) // Use CirculareAttack
             {
-                if(m_timeSinceLastCirculare >= m_circulareCouldown)
+                if (m_timeSinceLastCirculare >= m_playerData.circulareCouldown)
                 {
                     m_isUsingCirculare = true;
                     m_timeSinceLastCirculare = 0;
@@ -288,7 +329,22 @@ public class S_PlayerController : MonoBehaviour
     #endregion
 
     #region Health
+    public void AddHealth(float _health)
+    {
+        m_currentHealth += _health;
+        if (m_currentHealth > m_playerData.maxHealth) m_currentHealth = m_playerData.maxHealth;
+    }
 
+    public void RemoveHealth(float _health)
+    {
+        m_currentHealth -= _health;
+        if (m_currentHealth <= 0) Die();
+    }
+
+    private void Die()
+    {
+        // Dommage... 
+    }
     #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
