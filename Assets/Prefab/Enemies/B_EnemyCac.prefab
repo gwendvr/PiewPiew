@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7802113206544902058}
   - component: {fileID: 8969739200569698973}
   - component: {fileID: 8299999334230612013}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: B_EnemyCac
-  m_TagString: Untagged
+  m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: Blue
-  health: 1
+  health: 40
   maxDistance: 4
   minDistance: 1
   pathLinked: 

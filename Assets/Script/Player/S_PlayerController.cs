@@ -171,7 +171,7 @@ public class S_PlayerController : MonoBehaviour
                 Debug.Log(_hit);
                 if (_hit.CompareTag("Ennemy"))
                 {
-                    Debug.Log(m_cqcDamage);
+                    _hit.gameObject.GetComponent<S_Enemy>().health -= m_cqcDamage;
                 }
             }
             S_AudioManager.instance.PlayAudio("Hit", 0.7f, Random.Range(m_hitPitchMin, m_hitPitchMax));
