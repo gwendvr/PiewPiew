@@ -89,6 +89,8 @@ public class S_PlayerController : MonoBehaviour
     [Space(10)]
     [Header("CirculareAttack")]
     [SerializeField]
+    private GameObject m_circulareAttack;
+    [SerializeField]
     private float m_circulareDamage;
     private bool m_isUsingCirculare;
     private float m_timeSinceLastCirculare;
@@ -316,14 +318,23 @@ public class S_PlayerController : MonoBehaviour
             {
                 if (m_timeSinceLastCirculare >= m_playerData.circulareCouldown)
                 {
+                    m_circulareAttack.SetActive(true);
                     m_isUsingCirculare = true;
                     m_timeSinceLastCirculare = 0;
                     m_circulareFXEffect.SetTrigger("Use");
+                    StartCoroutine(FinishCirculareAttack());
                 }
             }
         }
     }
 
+    public float GetCirculareDamage() { return m_circulareDamage; }
+
+    private IEnumerator FinishCirculareAttack()
+    {
+        yield return new WaitForSeconds(m_circulareDuration);
+        m_circulareAttack.SetActive(false);
+    }
     private IEnumerator DisableDashFX()
     {
         yield return new WaitForSeconds(m_dashDuration);

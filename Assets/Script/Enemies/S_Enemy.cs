@@ -75,5 +75,13 @@ public abstract class S_Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("PlayerAttack"))
+        {
+            health -= collision.gameObject.GetComponentInParent<S_PlayerController>().GetCirculareDamage();
+        }
+    }
+
     public abstract void Attack();
 }
