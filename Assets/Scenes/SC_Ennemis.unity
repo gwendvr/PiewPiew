@@ -2493,12 +2493,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 856744036382294430, guid: 05d3ff0af48703f4ea611b13e83908ba, type: 3}
     - target: {fileID: 115934246796173804, guid: db7a4a19efa670c4fb03d2ed7a88d007, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 115934246796173804, guid: db7a4a19efa670c4fb03d2ed7a88d007, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2539565422292915138, guid: db7a4a19efa670c4fb03d2ed7a88d007, type: 3}
       propertyPath: m_Name
       value: ---Player---
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024045905727654743, guid: db7a4a19efa670c4fb03d2ed7a88d007, type: 3}
+      propertyPath: m_Emitting
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6946291958077773452, guid: db7a4a19efa670c4fb03d2ed7a88d007, type: 3}
       propertyPath: m_LocalPosition.x

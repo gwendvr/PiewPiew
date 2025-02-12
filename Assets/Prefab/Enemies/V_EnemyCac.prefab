@@ -156,6 +156,10 @@ MonoBehaviour:
   maxDistance: 4
   minDistance: 1
   distancePlayer: 0
+  pathLinked: 
+  pathsParent: []
+  paths: []
+  index: 0
 --- !u!195 &1413457988924860503
 NavMeshAgent:
   m_ObjectHideFlags: 0
