@@ -148,6 +148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capacity
       objectReference: {fileID: 0}
+    - target: {fileID: 1281585305222175791, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2123451770380746409, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_Layer
       value: 9
