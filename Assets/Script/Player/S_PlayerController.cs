@@ -15,8 +15,6 @@ public class S_PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject m_visual;
     private Rigidbody2D m_rb;
-    //[SerializeField]
-    //private float m_maxHealth;
     private float m_currentHealth;
     [SerializeField] private S_PlayerData m_playerData;
 
@@ -29,8 +27,6 @@ public class S_PlayerController : MonoBehaviour
 
     [Space(10)]
     [Header("Movement")]
-    //[SerializeField]
-    //private float m_movementSpeed;
     private Vector2 m_movementInput;
     private Vector2 m_nextPosition;
 
@@ -38,7 +34,6 @@ public class S_PlayerController : MonoBehaviour
     [Header("Rotation")]
     private Vector2 m_rotationInput;
     private bool m_useMousePos;
-    //[SerializeField] float m_rotationSpeed;
 
     [Space(10)]
     [Header("Attack")]
@@ -52,6 +47,13 @@ public class S_PlayerController : MonoBehaviour
     private float m_cqcCouldown;
     private float m_timeSinceLastAttack;
     private bool m_isAttacking;
+    [Range(0, 3)]
+    [SerializeField]
+    private float m_hitPitchMax;
+    [Range(0, 3)]
+    [SerializeField]
+    private float m_hitPitchMin;
+
 
     [Space(10)]
     [Header("Weapon")]
@@ -70,13 +72,11 @@ public class S_PlayerController : MonoBehaviour
 
     [Space(10)]
     [Header("Dash")]
-    //[SerializeField]
-    //private float m_dashCouldown;
+    [SerializeField]
+    private float m_dashStrength;
     private bool m_isDashing;
     private Vector2 m_dashDirection;
     private float m_timeSinceLastDash;
-    [SerializeField]
-    private float m_dashStrength;
     [SerializeField]
     private float m_dashDuration;
     [SerializeField]
@@ -88,14 +88,19 @@ public class S_PlayerController : MonoBehaviour
 
     [Space(10)]
     [Header("CirculareAttack")]
-    private bool m_isUsingCirculare;
-    private float m_timeSinceLastCirculare;
     [SerializeField]
     private float m_circulareDamage;
+    private bool m_isUsingCirculare;
+    private float m_timeSinceLastCirculare;
     [SerializeField]
     private float m_circulareDuration;
     [SerializeField]
     private Animator m_circulareFXEffect;
+
+    [Space(10)]
+    [Header("Collectibles")]
+    [SerializeField]
+    private float m_healByPotion;
 
 
 
@@ -169,6 +174,7 @@ public class S_PlayerController : MonoBehaviour
                     Debug.Log(m_cqcDamage);
                 }
             }
+            S_AudioManager.instance.PlayAudio("Hit", 0.7f, Random.Range(m_hitPitchMin, m_hitPitchMax));
             m_timeSinceLastAttack = 0;
         }
         else m_timeSinceLastAttack += Time.deltaTime;
@@ -248,6 +254,7 @@ public class S_PlayerController : MonoBehaviour
                 m_weaponOnGround.Remove(m_weapon);
                 m_weapon.transform.parent = m_hand;
                 m_weapon.Taken();
+                S_AudioManager.instance.PlayAudio("TakeWeapon");
             }
         }
     }
@@ -350,6 +357,12 @@ public class S_PlayerController : MonoBehaviour
         if (collision.CompareTag("Weapon"))
         {
             m_weaponOnGround.Add(collision.gameObject.GetComponent<S_Weapon>());
+        }
+        if (collision.CompareTag("Potion"))
+        {
+            AddHealth(m_healByPotion);
+            S_AudioManager.instance.PlayAudio("Heal");
+            Destroy(collision.gameObject);
         }
     }
 

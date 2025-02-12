@@ -13,4 +13,5 @@ public class S_WeaponData : ScriptableObject
     public float throwStrenght;
     public float shotCouldown;
     public int bulletInMagazine;
+    public string ShotAudioName;
 }
