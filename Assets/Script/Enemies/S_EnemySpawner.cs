@@ -10,13 +10,17 @@ public class S_EnemySpawner : MonoBehaviour
     private List<GameObject> m_spawnedEnemiesBlue = new List<GameObject>();
     private List<GameObject> m_spawnedEnemiesViolet = new List<GameObject>();
 
+    #region Unity Methods
     private void Start()
     {
-        spawnPoints = S_EnemyManager.instance.spawnPoints;
+        S_EnemyManager _enemyManager = S_EnemyManager.instance;
+        spawnPoints = _enemyManager.spawnPoints;
         SpawnEnemies();
+        _enemyManager.SetActiveUniverse("Blue");
     }
+    #endregion
 
-    // Enemy spawner for all universe
+    #region Enemy Spawning
     public void SpawnEnemies()
     {
         if (spawnPoints.Length == 0 || blueUniverseEnemies.Length == 0 || violetUniverseEnemies.Length == 0)
@@ -25,29 +29,24 @@ public class S_EnemySpawner : MonoBehaviour
             return;
         }
 
-        foreach (var _spawnPoint in spawnPoints)
-        {
-            var _pos = _spawnPoint.GetComponent<S_Path>();
-            GameObject _randomEnemyPrefab = blueUniverseEnemies[Random.Range(0, blueUniverseEnemies.Length)];
-            GameObject _spawnedEnemy = Instantiate(_randomEnemyPrefab, _pos.paths[0].transform.position, _pos.paths[0].transform.rotation);
-            _spawnedEnemy.SetActive(true);
-            var enemy = _spawnedEnemy.GetComponent<S_Enemy>();
-            enemy.pathLinked = _spawnPoint.name;
-            m_spawnedEnemiesBlue.Add(_spawnedEnemy);
-        }
-
-        foreach (var _spawnPoint in spawnPoints)
-        {
-            var _pos = _spawnPoint.GetComponent<S_Path>();
-            GameObject _randomEnemyPrefab = violetUniverseEnemies[Random.Range(0, violetUniverseEnemies.Length)];
-            GameObject _spawnedEnemy = Instantiate(_randomEnemyPrefab, _pos.paths[0].transform.position, _pos.paths[0].transform.rotation);
-            _spawnedEnemy.SetActive(false);
-            var enemy = _spawnedEnemy.GetComponent<S_Enemy>();
-            enemy.pathLinked = _spawnPoint.name;
-            m_spawnedEnemiesViolet.Add(_spawnedEnemy);
-        }
+        SpawnUniverseEnemies(blueUniverseEnemies, m_spawnedEnemiesBlue, true);
+        SpawnUniverseEnemies(violetUniverseEnemies, m_spawnedEnemiesViolet, true);
 
         S_EnemyManager.instance.RegisterEnemies("Blue", m_spawnedEnemiesBlue);
         S_EnemyManager.instance.RegisterEnemies("Violet", m_spawnedEnemiesViolet);
     }
+
+    private void SpawnUniverseEnemies(GameObject[] universeEnemies, List<GameObject> spawnedEnemies, bool isActive)
+    {
+        foreach (var _spawnPoint in spawnPoints)
+        {
+            var _pos = _spawnPoint.GetComponent<S_Path>();
+            GameObject _randomEnemyPrefab = universeEnemies[Random.Range(0, universeEnemies.Length)];
+            GameObject _spawnedEnemy = Instantiate(_randomEnemyPrefab, _pos.paths[0].transform.position, _pos.paths[0].transform.rotation);
+            var enemy = _spawnedEnemy.GetComponent<S_Enemy>();
+            enemy.pathLinked = _spawnPoint.name;
+            spawnedEnemies.Add(_spawnedEnemy);
+        }
+    }
+    #endregion
 }

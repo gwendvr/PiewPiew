@@ -8,7 +8,8 @@ public class S_Bullet : MonoBehaviour
     private float m_timeAlive;
     [SerializeField]
     private TrailRenderer m_trail;
-
+    [SerializeField]
+    private bool m_isEnemyBullet;
     private void FixedUpdate()
     {
         m_timeAlive += Time.fixedDeltaTime;
@@ -26,7 +27,15 @@ public class S_Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        S_PoolingSystem.instance.AddAvailableBullet(this);
+        if (m_isEnemyBullet)
+        {
+            S_PoolingSystem.instance.AddAvailableEnemyBullet(this);
+        }
+        else
+        {
+            S_PoolingSystem.instance.AddAvailableBullet(this);
+
+        }
     }
 
     public void ResetBullet()
