@@ -80,6 +80,15 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Capacity"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac4a498b-027b-4aeb-930f-d0f34d5b5720"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,39 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                     ""action"": ""SwitchDimension"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88fd9b13-f916-45dc-afbe-88225fd5f0c3"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Capacity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eee690ee-b773-4ea6-920d-d7e4e2618d91"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Capacity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4bb347ac-d69c-4ad9-963e-41a56e3424b6"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Capacity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -267,6 +309,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         m_PlayerController_Interact = m_PlayerController.FindAction("Interact", throwIfNotFound: true);
         m_PlayerController_Attack = m_PlayerController.FindAction("Attack", throwIfNotFound: true);
         m_PlayerController_SwitchDimension = m_PlayerController.FindAction("SwitchDimension", throwIfNotFound: true);
+        m_PlayerController_Capacity = m_PlayerController.FindAction("Capacity", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
     }
@@ -342,6 +385,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerController_Interact;
     private readonly InputAction m_PlayerController_Attack;
     private readonly InputAction m_PlayerController_SwitchDimension;
+    private readonly InputAction m_PlayerController_Capacity;
     public struct PlayerControllerActions
     {
         private @PlayerControlMap m_Wrapper;
@@ -352,6 +396,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_PlayerController_Interact;
         public InputAction @Attack => m_Wrapper.m_PlayerController_Attack;
         public InputAction @SwitchDimension => m_Wrapper.m_PlayerController_SwitchDimension;
+        public InputAction @Capacity => m_Wrapper.m_PlayerController_Capacity;
         public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -379,6 +424,9 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
             @SwitchDimension.started += instance.OnSwitchDimension;
             @SwitchDimension.performed += instance.OnSwitchDimension;
             @SwitchDimension.canceled += instance.OnSwitchDimension;
+            @Capacity.started += instance.OnCapacity;
+            @Capacity.performed += instance.OnCapacity;
+            @Capacity.canceled += instance.OnCapacity;
         }
 
         private void UnregisterCallbacks(IPlayerControllerActions instance)
@@ -401,6 +449,9 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
             @SwitchDimension.started -= instance.OnSwitchDimension;
             @SwitchDimension.performed -= instance.OnSwitchDimension;
             @SwitchDimension.canceled -= instance.OnSwitchDimension;
+            @Capacity.started -= instance.OnCapacity;
+            @Capacity.performed -= instance.OnCapacity;
+            @Capacity.canceled -= instance.OnCapacity;
         }
 
         public void RemoveCallbacks(IPlayerControllerActions instance)
@@ -464,6 +515,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnSwitchDimension(InputAction.CallbackContext context);
+        void OnCapacity(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

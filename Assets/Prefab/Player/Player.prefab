@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6946291958077773452}
   m_Layer: 0
-  m_Name: ---Player---
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &4567498376127962499
@@ -144,9 +144,13 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 144156256439507892, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
+    - target: {fileID: 1129347179514851712, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+      propertyPath: m_Name
+      value: Capacity
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123451770380746409, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3321825561995611638, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_LocalScale.x
@@ -159,18 +163,6 @@ PrefabInstance:
     - target: {fileID: 3321825561995611638, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479054138426604275, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479054138426604275, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479054138426604275, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4479054138426604275, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -225,12 +217,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5508854565593508474, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+      propertyPath: m_dashFXEffect
+      value: 
+      objectReference: {fileID: 2151054258969407031}
+    - target: {fileID: 5508854565593508474, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_cursorDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5508854565593508474, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+      propertyPath: m_couldownPicture
+      value: 
+      objectReference: {fileID: 4414895493143945929}
+    - target: {fileID: 5508854565593508474, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+      propertyPath: m_circulareFXEffect
+      value: 
+      objectReference: {fileID: 5562104644061007527}
     - target: {fileID: 6085292048166723168, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831367039542104399, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -240,5 +248,20 @@ PrefabInstance:
 --- !u!4 &93396438162007920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4479054138426604275, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+  m_PrefabInstance: {fileID: 4567498376127962499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2151054258969407031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2502057324914521012, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+  m_PrefabInstance: {fileID: 4567498376127962499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4414895493143945929 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 155338580122058570, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+  m_PrefabInstance: {fileID: 4567498376127962499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5562104644061007527 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8238089937317614372, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
   m_PrefabInstance: {fileID: 4567498376127962499}
   m_PrefabAsset: {fileID: 0}

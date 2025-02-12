@@ -1,65 +1,113 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
 
 public class S_PlayerController : MonoBehaviour
 {
     [Header("Player elements")]
-    private Rigidbody2D m_rb;
     [SerializeField]
     private GameObject m_visual;
+    private Rigidbody2D m_rb;
+    [SerializeField]
+    private float m_maxHealth;
+    private float m_currentHealth;
 
+    [Space(10)]
     [Header("Cursor")]
     [SerializeField]
     private GameObject m_target;
     [SerializeField]
     private float m_cursorDistance;
 
-
+    [Space(10)]
     [Header("Movement")]
-    private Vector2 m_movementInput;
     [SerializeField]
     private float m_movementSpeed;
+    private Vector2 m_movementInput;
+    private Vector2 m_nextPosition;
 
+    [Space(10)]
     [Header("Rotation")]
     private Vector2 m_rotationInput;
     private bool m_useMousePos;
 
+    [Space(10)]
     [Header("Weapon")]
-    private S_Weapon m_weapon;
-    private List<S_Weapon> m_weaponOnGround = new List<S_Weapon>();
     [SerializeField]
     private Transform m_hand;
+    private S_Weapon m_weapon;
+    private List<S_Weapon> m_weaponOnGround = new List<S_Weapon>();
     private bool m_isShooting = false;
 
+    [Space(10)]
     [Header("Dimension")]
-    private bool isDimension1 = true;
     [SerializeField]
     private GameObject m_dimensionFilter;
+    private bool isDimension1 = true;
+
+
+    [Space(10)]
+    [Header("Dash")]
+    [SerializeField]
+    private float m_dashCouldown;
+    private bool m_isDashing;
+    private Vector2 m_dashDirection;
+    private float m_timeSinceLastDash;
+    [SerializeField]
+    private float m_dashStrength;
+    [SerializeField]
+    private float m_dashDuration;
+    [SerializeField]
+    private GameObject m_dashFXEffect;
+    private ParticleSystem m_dashParticleSystem;
+    private TrailRenderer m_dashTrailRenderer;
+    [SerializeField]
+    private RectTransform m_couldownPicture;
+
+    [Space(10)]
+    [Header("CirculareAttack")]
+    [SerializeField]
+    private float m_circulareCouldown;
+    private bool m_isUsingCirculare;
+    private float m_timeSinceLastCirculare;
+    [SerializeField]
+    private float m_circulareDamage;
+    [SerializeField]
+    private float m_circulareDuration;
+    [SerializeField]
+    private Animator m_circulareFXEffect;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        m_dashParticleSystem =  m_dashFXEffect.GetComponent<ParticleSystem>();
+        m_dashTrailRenderer = m_dashFXEffect.GetComponent<TrailRenderer>();
+        m_timeSinceLastDash = m_dashCouldown;
+        m_timeSinceLastCirculare = m_circulareCouldown;
     }
 
     // Update is called once per frame
     void Update()
     {
         #region Position
-        Vector2 _pos = new Vector2(m_rb.position.x + (m_movementInput.x * m_movementSpeed), m_rb.position.y + (m_movementInput.y * m_movementSpeed));
-        m_rb.MovePosition(_pos);
+        m_nextPosition = new Vector2(m_rb.position.x + (m_movementInput.x * m_movementSpeed), m_rb.position.y + (m_movementInput.y * m_movementSpeed));
+        transform.position = m_nextPosition;
         #endregion
 
         #region Rotation
 
         #region Rotate with mouse
         Vector2 _lookAtPos = new Vector2(0, 0);
-        if (m_useMousePos) 
+        if (m_useMousePos)
         {
             Vector3 _mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 _rotation = _mouseWorldPos - transform.position;
@@ -86,13 +134,49 @@ public class S_PlayerController : MonoBehaviour
         #endregion
 
         #region Shot
-        if(m_isShooting)
+        if (m_isShooting)
         {
             m_weapon.Shot(transform.rotation.eulerAngles.z - 90); // Player rotated 90° so re-rotate the Z axis to make the bullet shot forward
         }
         #endregion
 
+        #region Capacity
+        #region Dash
+        if (m_isDashing)
+        {
+            m_isDashing = false;
+            S_CameraBehaviour.instance.Dash(m_dashDuration);
+        }
+        else
+        {
+            m_timeSinceLastDash += Time.deltaTime;
+        }
+        if(m_timeSinceLastDash < m_dashCouldown && S_DimensionManager.instance.isDimension1)
+        {
+            m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 100 - (m_timeSinceLastDash * 100) / m_dashCouldown);
+        }
+        else if(S_DimensionManager.instance.isDimension1) m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 0);
+        #endregion
+
+        #region Circulare
+        if (m_isUsingCirculare)
+        {
+            m_isUsingCirculare = false;
+        }
+        else
+        {
+            m_timeSinceLastCirculare += Time.deltaTime;
+        }
+        if (m_timeSinceLastCirculare < m_circulareCouldown && !S_DimensionManager.instance.isDimension1)
+        {
+            m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 100 - (m_timeSinceLastCirculare * 100) / m_circulareCouldown);
+        }
+        else if (!S_DimensionManager.instance.isDimension1) m_couldownPicture.sizeDelta = new Vector2(m_couldownPicture.sizeDelta.x, 0);
+        #endregion
+
+        #endregion
     }
+
 
     #region Input
     public void OnMove(InputAction.CallbackContext context)
@@ -114,7 +198,6 @@ public class S_PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("---Interact---");
             if (m_weapon != null) // Remove weapon in hand
             {
                 m_weapon.Throw(transform.right);
@@ -145,7 +228,7 @@ public class S_PlayerController : MonoBehaviour
 
             }
         }
-        else if(context.canceled)
+        else if (context.canceled)
         {
             m_isShooting = false; // LMB released
         }
@@ -153,29 +236,64 @@ public class S_PlayerController : MonoBehaviour
 
     public void SwitchDimension(InputAction.CallbackContext context)
     {
-        isDimension1 = !isDimension1;
-        S_AudioManager _audioManager = S_AudioManager.instance;
-
-        if (isDimension1)
-        {
-            _audioManager.PlayAudioAtSecond("MainThemeDimension1", _audioManager.GetAudioTime("MainThemeDimension2"));
-            _audioManager.StopAudio("MainThemeDimension2");
-            m_dimensionFilter.SetActive(false);
-        }
-        else
-        {
-            _audioManager.PlayAudioAtSecond("MainThemeDimension2", _audioManager.GetAudioTime("MainThemeDimension1"));
-            _audioManager.StopAudio("MainThemeDimension1");
-            m_dimensionFilter.SetActive(true);
-        }
-
+        S_DimensionManager.instance.ChangeDimension();
     }
+
+    public void UseCapacity(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (S_DimensionManager.instance.isDimension1 && m_timeSinceLastDash >= m_dashCouldown) // Use Dash
+            {
+                m_timeSinceLastDash = 0;
+                bool _dashForward = (m_movementInput.x == 0 && m_movementInput.y == 0);
+                if (_dashForward)
+                {
+                    // dash in cursor direction
+                    m_dashDirection = transform.right;
+                }
+                else
+                {
+                    // dash in walk direction
+                    m_dashDirection = m_movementInput;
+                }
+                m_rb.AddForce(m_dashDirection * m_dashStrength, ForceMode2D.Impulse);
+                if(m_dashParticleSystem != null && m_dashTrailRenderer != null)
+                {
+                    m_dashTrailRenderer.emitting = true;
+                    m_dashParticleSystem.Play();
+                    m_isDashing = true;
+                    StartCoroutine(DisableDashFX());
+                }
+            }
+            else if(!S_DimensionManager.instance.isDimension1) // Use CirculareAttack
+            {
+                if(m_timeSinceLastCirculare >= m_circulareCouldown)
+                {
+                    m_isUsingCirculare = true;
+                    m_timeSinceLastCirculare = 0;
+                    m_circulareFXEffect.SetTrigger("Use");
+                }
+            }
+        }
+    }
+
+    private IEnumerator DisableDashFX()
+    {
+        yield return new WaitForSeconds(m_dashDuration);
+        m_dashParticleSystem.Stop();
+        m_dashTrailRenderer.emitting = false;
+    }
+
+    #endregion
+
+    #region Health
 
     #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Weapon"))
+        if (collision.CompareTag("Weapon"))
         {
             m_weaponOnGround.Add(collision.gameObject.GetComponent<S_Weapon>());
         }
