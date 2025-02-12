@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a8ecb50d7b2c65c4da7e83f110847df1
+guid: 4d8a5bac7d698184ebede00570313b21
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7003035581439930899
-    second: shotgunFront_0
+      213: -2880734798192188640
+    second: Potion_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shotgunFront_0
+      name: Potion_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 23
-        width: 1391
-        height: 525
+        x: 66
+        y: 34
+        width: 391
+        height: 427
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 312f525f1c7cf2160800000000000000
-      internalID: 7003035581439930899
+      spriteID: 023e5adb6f29508d0800000000000000
+      internalID: -2880734798192188640
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      shotgunFront_0: 7003035581439930899
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
