@@ -33,7 +33,15 @@ public class S_Weapon : MonoBehaviour
     public void Shot(float _rotZ)
     {
         if (m_timeSinceLastShot < data.shotCouldown) return; // If couldown isn't finished, don't shot
+        if (bulletShot >= data.bulletInMagazine)
+        {
+            m_timeSinceLastShot = 0;
+            S_AudioManager.instance.PlayAudio("NoMoreBullet");
+            return; // no more ammo
+        }
+        
         int i = 0;
+        S_CameraBehaviour.instance.Shot();
 
         while (i < data.bulletPerShot) // Shot all bullets needed
         {
@@ -52,16 +60,17 @@ public class S_Weapon : MonoBehaviour
                 _bullet.transform.rotation = _rotation;
                 _bullet.StartTrail();
                 _bullet.Shot(data);
-                bulletShot++;
-
                 i++;
             }
+
 
             else
             {
                 i = data.bulletPerShot;
             }
         }
+        bulletShot++;
+
         if (data.bulletInMagazine > bulletShot)
         {
             S_BulletParticle _particle = S_ParticlePoolingSystem.instance.GetParticle();
@@ -69,6 +78,7 @@ public class S_Weapon : MonoBehaviour
             _particle.transform.rotation = transform.rotation;
         }
         m_timeSinceLastShot = 0;
+        S_AudioManager.instance.PlayAudio(data.ShotAudioName);
     }
 
     public void Taken()
