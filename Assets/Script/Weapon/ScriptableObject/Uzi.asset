@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 5402311670705113229, guid: d81bf58e09ee8114d8035c086e0df143, type: 3}
   topSprite: {fileID: -8527322241519305941, guid: e92e992d40316c3449df0c079958aa5b, type: 3}
-  damage: 4
+  damage: 7
   bulletPerShot: 1
   coneAngle: 20
   range: 1

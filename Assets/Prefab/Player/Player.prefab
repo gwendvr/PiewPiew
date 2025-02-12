@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2539565422292915138, guid: db7a4a19efa670c4fb03d2ed7a88d007, type: 3}
       propertyPath: m_Name
-      value: ---Player--- Variant
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3024045905727654743, guid: db7a4a19efa670c4fb03d2ed7a88d007, type: 3}
       propertyPath: m_Emitting

@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rb: {fileID: 1511640947021892754}
   m_trail: {fileID: 171201516303634749}
+  m_isEnemyBullet: 0
 --- !u!50 &1511640947021892754
 Rigidbody2D:
   serializedVersion: 5

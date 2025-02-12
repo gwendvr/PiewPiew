@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.RuleTile.TilingRuleOutput;
-
 
 public class S_PlayerController : MonoBehaviour
 {
@@ -348,7 +348,7 @@ public class S_PlayerController : MonoBehaviour
 
     private void Die()
     {
-        // Dommage... 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     #endregion
 
