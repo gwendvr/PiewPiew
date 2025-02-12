@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bccf6a68b3e56439a54c00157144ba, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  speed: 0
-  rotationSpeed: 0
-  dashCouldown: 0
-  circulareCouldown: 0
+  maxHealth: 100
+  speed: 0.1
+  rotationSpeed: 1000
+  dashCouldown: 4
+  circulareCouldown: 8

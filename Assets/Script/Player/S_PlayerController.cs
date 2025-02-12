@@ -18,7 +18,7 @@ public class S_PlayerController : MonoBehaviour
     //[SerializeField]
     //private float m_maxHealth;
     private float m_currentHealth;
-    private S_PlayerData m_playerData;
+    [SerializeField] private S_PlayerData m_playerData;
 
     [Space(10)]
     [Header("Cursor")]
@@ -88,8 +88,6 @@ public class S_PlayerController : MonoBehaviour
 
     [Space(10)]
     [Header("CirculareAttack")]
-    //[SerializeField]
-    //private float m_circulareCouldown;
     private bool m_isUsingCirculare;
     private float m_timeSinceLastCirculare;
     [SerializeField]
