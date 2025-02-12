@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 616715502495523715}
   - component: {fileID: 4571937179612465678}
   - component: {fileID: 7500023866899122605}
-  - component: {fileID: 3237735827853564214}
   - component: {fileID: 7802113206544902058}
   - component: {fileID: 8969739200569698973}
-  m_Layer: 0
+  - component: {fileID: 8299999334230612013}
+  m_Layer: 12
   m_Name: B_EnemyCac
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,29 +137,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.01, y: 0.44}
   m_EdgeRadius: 0
---- !u!114 &3237735827853564214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633577685476173289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3041eefd42d797949b876ad45e83890f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  world: Blue
-  health: 1
-  player: {fileID: 0}
-  agent: {fileID: 7802113206544902058}
-  maxDistance: 4
-  minDistance: 1
-  distancePlayer: 0
-  pathLinked: 
-  pathsParent: []
-  paths: []
-  index: 0
 --- !u!195 &7802113206544902058
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -194,3 +171,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8299999334230612013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633577685476173289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bceece688cf7a15418e09bce78c6cc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  world: Blue
+  health: 1
+  maxDistance: 4
+  minDistance: 1
+  pathLinked: 
+  pathsParent: []
+  paths: []
+  index: 0
+  attackCooldown: 1.5
+  damage: 0
+  range: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0

@@ -13,6 +13,7 @@ public class S_DimensionManager : MonoBehaviour
     private GameObject m_circularAttackIcon;
     public bool isDimension1 = true;
 
+
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(this);
@@ -23,6 +24,7 @@ public class S_DimensionManager : MonoBehaviour
     {
         isDimension1 = !isDimension1;
         S_AudioManager _audioManager = S_AudioManager.instance;
+        S_EnemyManager _enemyManager = S_EnemyManager.instance;
 
         if (isDimension1)
         {
@@ -32,6 +34,7 @@ public class S_DimensionManager : MonoBehaviour
             _audioManager.PlayAudioAtSecond("MainThemeDimension1", _audioManager.GetAudioTime("MainThemeDimension2"));
             _audioManager.StopAudio("MainThemeDimension2");
             m_dimensionFilter.SetActive(false);
+            _enemyManager.SetActiveUniverse("Blue");
         }
         else
         {
@@ -41,6 +44,7 @@ public class S_DimensionManager : MonoBehaviour
             _audioManager.PlayAudioAtSecond("MainThemeDimension2", _audioManager.GetAudioTime("MainThemeDimension1"));
             _audioManager.StopAudio("MainThemeDimension1");
             m_dimensionFilter.SetActive(true);
+            _enemyManager.SetActiveUniverse("Violet");
         }
     }
 }

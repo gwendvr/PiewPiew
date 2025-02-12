@@ -8,8 +8,11 @@ public class S_PoolingSystem : MonoBehaviour
     public static S_PoolingSystem instance => Instance;
 
     private List<S_Bullet> m_availableBullet = new List<S_Bullet>();
+    private List<S_Bullet> m_availableEnemyBullet = new List<S_Bullet>();
     [SerializeField]
     private S_Bullet m_bullet;
+    [SerializeField]
+    private S_Bullet m_enemyBullet;
 
     private void Awake()
     {
@@ -37,6 +40,31 @@ public class S_PoolingSystem : MonoBehaviour
     public void AddAvailableBullet(S_Bullet _bullet)
     {
         m_availableBullet.Add(_bullet);
+        _bullet.StopTrail();
+        _bullet.transform.parent = transform;
+        _bullet.gameObject.SetActive(false);
+    }
+
+    public S_Bullet GetEnemyBullet()
+    {
+        if (m_availableEnemyBullet.Count > 0)
+        {
+            S_Bullet _bullet = m_availableEnemyBullet[0];
+            m_availableEnemyBullet.RemoveAt(0);
+            _bullet.gameObject.SetActive(true);
+            _bullet.ResetBullet();
+            return _bullet;
+        }
+        else
+        {
+            var _bullet = Instantiate(m_enemyBullet);
+            return _bullet;
+        }
+    }
+
+    public void AddAvailableEnemyBullet(S_Bullet _bullet)
+    {
+        m_availableEnemyBullet.Add(_bullet);
         _bullet.StopTrail();
         _bullet.transform.parent = transform;
         _bullet.gameObject.SetActive(false);

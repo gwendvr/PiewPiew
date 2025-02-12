@@ -5,13 +5,14 @@ using UnityEngine.Windows;
 
 public class S_EnemyManager : MonoBehaviour
 {
-    public static S_EnemyManager instance { get; private set; }
-
     public string activeUniverse = "Blue";
     public GameObject player;
     public GameObject[] spawnPoints;
 
     private Dictionary<string, List<GameObject>> m_ennemiesByUniverse = new Dictionary<string, List<GameObject>>();
+
+    #region Singleton
+    public static S_EnemyManager instance { get; private set; }
 
     private void Awake()
     {
@@ -24,8 +25,10 @@ public class S_EnemyManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 
     // Register enemies by universe to differentiate them
+    #region Enemy Management
     public void RegisterEnemies(string _universe, List<GameObject> _enemies)
     {
         if (!m_ennemiesByUniverse.ContainsKey(_universe))
@@ -36,14 +39,35 @@ public class S_EnemyManager : MonoBehaviour
         m_ennemiesByUniverse[_universe].AddRange(_enemies);
     }
 
+    // Remove enemies detsroyed on dictionary
+    public void RemoveEnemyFromUniverse(string _universe, GameObject _enemy)
+    {
+        if (m_ennemiesByUniverse.ContainsKey(_universe))
+        {
+            m_ennemiesByUniverse[_universe].Remove(_enemy);
+            Debug.Log("Ennemi supprimé du dictionnaire : " + _enemy.name);
+        }
+    }
+
+    // Get enemy count by universe
+    public int GetEnemyCount(string _universe)
+    {
+        if (!m_ennemiesByUniverse.ContainsKey(_universe))
+        {
+            return 0;
+        }
+        return m_ennemiesByUniverse[_universe].Count;
+    }
+    #endregion
+
     // Change enemies when we change universe
+    #region Universe Switching
     public void SetActiveUniverse(string _universe)
     {
         if (activeUniverse == _universe) return;
 
         if (m_ennemiesByUniverse.ContainsKey(activeUniverse))
         {
-
             foreach (var _enemy in m_ennemiesByUniverse[activeUniverse])
             {
                 _enemy.SetActive(false);
@@ -60,24 +84,5 @@ public class S_EnemyManager : MonoBehaviour
 
         activeUniverse = _universe;
     }
-
-    // Get enemy count by universe
-    public int GetEnemyCount(string _universe)
-    {
-        if (!m_ennemiesByUniverse.ContainsKey(_universe))
-        {
-            return 0;
-        }
-        return m_ennemiesByUniverse[_universe].Count;
-    }
-
-    // Remove enemies detsroyed on dictionary
-    public void RemoveEnemyFromUniverse(string _universe, GameObject _enemy)
-    {
-        if (m_ennemiesByUniverse.ContainsKey(_universe))
-        {
-            m_ennemiesByUniverse[_universe].Remove(_enemy);
-            Debug.Log("Ennemi supprimé du dictionnaire : " + _enemy.name);
-        }
-    }
+    #endregion
 }

@@ -2,18 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class S_Enemy : MonoBehaviour
+public abstract class S_Enemy : MonoBehaviour
 {
-    [Header("Enemy parameters")]
+    [Header("Enemy Parameters")]
     public string world;
     public float health = 1;
 
-    [Header("follow Player")]
-    public Transform player;
-    public NavMeshAgent agent;
+    [Header("Follow Player")]
+    protected Transform player;
+    protected NavMeshAgent agent;
     public float maxDistance = 4;
     public float minDistance = 1;
-    public float distancePlayer;
 
     [Header("Path Enemy")]
     public string pathLinked;
@@ -21,15 +20,27 @@ public class S_Enemy : MonoBehaviour
     public List<GameObject> paths;
     public int index;
 
-    private void Start()
+    protected virtual void Start()
     {
-        if (player == null)
-        {
-            player = S_EnemyManager.instance.player.transform;
-        }
+        player = S_EnemyManager.instance.player.transform;
+        agent = GetComponent<NavMeshAgent>();
+        InitializePath();
+    }
 
+    protected virtual void Update()
+    {
+        HandleMovement();
+        CheckHealth();
+    }
+
+    private void OnDestroy()
+    {
+        S_EnemyManager.instance.RemoveEnemyFromUniverse(world, this.gameObject);
+    }
+
+    private void InitializePath()
+    {
         pathsParent = S_EnemyManager.instance.spawnPoints;
-
         foreach (GameObject path in pathsParent)
         {
             if (path.name == pathLinked)
@@ -38,48 +49,31 @@ public class S_Enemy : MonoBehaviour
                 paths = _path.paths;
             }
         }
-
         index = 1;
-
         agent.destination = paths[index].transform.position;
     }
 
-    void Update()
+    protected virtual void HandleMovement()
     {
-        // tracker le player
-        distancePlayer = Vector3.Distance(this.transform.position, player.position);
-        if(distancePlayer < maxDistance )
+        float distancePlayer = Vector3.Distance(transform.position, player.position);
+        if (distancePlayer < maxDistance && distancePlayer > minDistance)
         {
-            if (distancePlayer > minDistance)
-            {
-                agent.destination = player.position;
-            }
+            agent.destination = player.position;
         }
-        else
+        else if (Vector3.Distance(transform.position, agent.destination) <= 0.5)
         {
-            if(Vector3.Distance(this.transform.position, agent.destination) <= 0.5)
-            {
-                if (index >= paths.Count - 1)
-                {
-                    index = 0;
-                }
-                else
-                {
-                    index++;
-                }
-                agent.destination = paths[index].transform.position;
-            }
-        }
-
-        if (health <= 0 )
-        {
-            Destroy(this.gameObject);
+            index = (index >= paths.Count - 1) ? 0 : index + 1;
+            agent.destination = paths[index].transform.position;
         }
     }
 
-    // Remove enemy from dictionnary when game object is detroy
-    void OnDestroy()
+    private void CheckHealth()
     {
-        S_EnemyManager.instance.RemoveEnemyFromUniverse(world, this.gameObject);
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    public abstract void Attack();
 }
