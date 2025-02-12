@@ -40,6 +40,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2123451770380746409, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3321825561995611638, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -105,6 +109,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5508854565593508474, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+      propertyPath: m_circulareAttack
+      value: 
+      objectReference: {fileID: 8079214382670691367}
+    - target: {fileID: 5508854565593508474, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_couldownPicture
       value: 
       objectReference: {fileID: 8016681196726615492}
@@ -114,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 2248621847357591978}
     - target: {fileID: 6085292048166723168, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_Name
-      value: Player Variant
+      value: PlayerController
       objectReference: {fileID: 0}
     - target: {fileID: 7831367039542104399, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
       propertyPath: m_Layer
@@ -138,5 +146,10 @@ GameObject:
 --- !u!224 &8016681196726615492 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 155338580122058570, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
+  m_PrefabInstance: {fileID: 7883312066619490958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8079214382670691367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2123451770380746409, guid: 3b6918c8cacf30842bc9123222456bd2, type: 3}
   m_PrefabInstance: {fileID: 7883312066619490958}
   m_PrefabAsset: {fileID: 0}

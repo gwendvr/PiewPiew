@@ -4707,6 +4707,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ---Player---
       objectReference: {fileID: 0}
+    - target: {fileID: 4845958619561770550, guid: 7b0a37bb89000da4998bff56f1c37290, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845958619561770550, guid: 7b0a37bb89000da4998bff56f1c37290, type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 5821056374224451636, guid: 7b0a37bb89000da4998bff56f1c37290, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
