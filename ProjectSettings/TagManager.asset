@@ -7,7 +7,8 @@ TagManager:
   - Weapon
   - Bullet
   - PlayerBullet
-  - EnemyBullet
+  - Ennemy
+  - Potion
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - WeaponVisual
   - PlayerAttack
   - Weapon
-  - EnemyBullet
-  - Enemy
+  - Ennemy
+  - Potion
   - 
   - 
   - 

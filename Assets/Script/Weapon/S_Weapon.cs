@@ -18,7 +18,12 @@ public class S_Weapon : MonoBehaviour
     [SerializeField]
     private S_BulletParticle particle;
     private int bulletShot;
+    private S_PoolingSystem m_poolingSystem;
 
+    private void Start()
+    {
+        m_poolingSystem = S_PoolingSystem.instance;
+    }
 
     private void FixedUpdate()
     {
@@ -28,7 +33,13 @@ public class S_Weapon : MonoBehaviour
     public void Shot(float _rotZ)
     {
         if (m_timeSinceLastShot < data.shotCouldown) return; // If couldown isn't finished, don't shot
-        if (bulletShot >= data.bulletInMagazine) return; // no more ammo
+        if (bulletShot >= data.bulletInMagazine)
+        {
+            m_timeSinceLastShot = 0;
+            S_AudioManager.instance.PlayAudio("NoMoreBullet");
+            return; // no more ammo
+        }
+        
         int i = 0;
         S_CameraBehaviour.instance.Shot();
 
@@ -67,6 +78,7 @@ public class S_Weapon : MonoBehaviour
             _particle.transform.rotation = transform.rotation;
         }
         m_timeSinceLastShot = 0;
+        S_AudioManager.instance.PlayAudio(data.ShotAudioName);
     }
 
     public void Taken()

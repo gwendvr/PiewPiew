@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7345f54c6da104786bc96be98135bc, type: 3}
+  m_Name: Uzi
+  m_EditorClassIdentifier: 
+  frontSprite: {fileID: 5402311670705113229, guid: d81bf58e09ee8114d8035c086e0df143, type: 3}
+  topSprite: {fileID: -8527322241519305941, guid: e92e992d40316c3449df0c079958aa5b, type: 3}
+  damage: 4
+  bulletPerShot: 1
+  coneAngle: 20
+  range: 1
+  bulletSpeed: 15
+  throwStrenght: 50
+  shotCouldown: 0.05
+  bulletInMagazine: 60
+  ShotAudioName: UziShot
