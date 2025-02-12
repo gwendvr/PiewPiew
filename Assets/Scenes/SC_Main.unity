@@ -4640,6 +4640,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1318195250882292453, guid: 7b0a37bb89000da4998bff56f1c37290, type: 3}
+      propertyPath: m_cqcDamage
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318195250882292453, guid: 7b0a37bb89000da4998bff56f1c37290, type: 3}
       propertyPath: m_dimensionFilter
       value: 
       objectReference: {fileID: 659771014}
