@@ -27,14 +27,23 @@ public class S_Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (m_isEnemyBullet)
+        if (m_isEnemyBullet && collision.collider.CompareTag("Player"))
+        {
+            collision.collider.gameObject.GetComponent<S_PlayerController>().RemoveHealth(m_data.damage);
+            S_PoolingSystem.instance.AddAvailableEnemyBullet(this);
+        }
+        else if(collision.collider.CompareTag("Ennemy"))
+        {
+            collision.collider.gameObject.GetComponent<S_Enemy>().health -= m_data.damage;
+            S_PoolingSystem.instance.AddAvailableBullet(this);
+        }
+        else if (m_isEnemyBullet)
         {
             S_PoolingSystem.instance.AddAvailableEnemyBullet(this);
         }
         else
         {
             S_PoolingSystem.instance.AddAvailableBullet(this);
-
         }
     }
 

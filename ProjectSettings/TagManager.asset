@@ -9,6 +9,7 @@ TagManager:
   - PlayerBullet
   - Ennemy
   - Potion
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Weapon
   - Ennemy
   - Potion
-  - 
+  - EnnemyBullet
   - 
   - 
   - 

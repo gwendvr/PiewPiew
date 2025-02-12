@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1413457988924860503}
   - component: {fileID: 1986746749885134624}
   - component: {fileID: 7384067432914371297}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: V_Enemy
-  m_TagString: Untagged
+  m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: Violet
-  health: 1
+  health: 25
   maxDistance: 4
   minDistance: 1
   pathLinked: 
@@ -192,3 +192,4 @@ MonoBehaviour:
   paths: []
   index: 0
   data: {fileID: 11400000, guid: ed4fa8e3ede7f524b8255f4923613bc2, type: 2}
+  attackCooldown: 2
