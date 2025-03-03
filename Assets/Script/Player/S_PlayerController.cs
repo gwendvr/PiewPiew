@@ -103,6 +103,7 @@ public class S_PlayerController : MonoBehaviour
     [Header("Collectibles")]
     [SerializeField]
     private float m_healByPotion;
+    private LootBox currentLootBox;
 
 
 
@@ -160,7 +161,7 @@ public class S_PlayerController : MonoBehaviour
         #region Shot
         if (m_isShooting)
         {
-            m_weapon.Shot(transform.rotation.eulerAngles.z - 90); // Player rotated 90° so re-rotate the Z axis to make the bullet shot forward
+            m_weapon.Shot(transform.rotation.eulerAngles.z - 90); // Player rotated 90ï¿½ so re-rotate the Z axis to make the bullet shot forward
         }
         #endregion
 
@@ -257,6 +258,11 @@ public class S_PlayerController : MonoBehaviour
                 m_weapon.transform.parent = m_hand;
                 m_weapon.Taken();
                 S_AudioManager.instance.PlayAudio("TakeWeapon");
+            }
+            
+            if (context.started && currentLootBox != null) // Open Lootbox
+            {
+                currentLootBox.Open();
             }
         }
     }
@@ -375,6 +381,16 @@ public class S_PlayerController : MonoBehaviour
             S_AudioManager.instance.PlayAudio("Heal");
             Destroy(collision.gameObject);
         }
+
+        if (collision.CompareTag("Lootbox"))
+        {
+            LootBox lootBox = collision.GetComponent<LootBox>();
+            if (lootBox != null)
+            {
+                currentLootBox = lootBox;
+            }
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -382,6 +398,15 @@ public class S_PlayerController : MonoBehaviour
         if (collision.CompareTag("Weapon"))
         {
             m_weaponOnGround.Remove(collision.gameObject.GetComponent<S_Weapon>());
+        }
+
+        if (collision.CompareTag("Lootbox"))
+        {
+            LootBox lootBox = collision.GetComponent<LootBox>();
+            if (lootBox != null && lootBox == currentLootBox)
+            {
+                currentLootBox = null;
+            }
         }
     }
 }
