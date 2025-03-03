@@ -5905,6 +5905,7 @@ MonoBehaviour:
   m_dashDuration: 0
   m_dashFXEffect: {fileID: 0}
   m_couldownPicture: {fileID: 0}
+  m_circulareAttack: {fileID: 0}
   m_circulareDamage: 0
   m_circulareDuration: 0
   m_circulareFXEffect: {fileID: 8238089937317614372}
@@ -6046,6 +6047,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ac4a498b-027b-4aeb-930f-d0f34d5b5720
     m_ActionName: 'PlayerController/Dash[/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0942946c-15a2-41b7-b7ef-f51b8ac37562
+    m_ActionName: 'PlayerController/Pause[/Keyboard/escape,/Keyboard/p]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerController

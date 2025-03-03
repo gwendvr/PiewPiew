@@ -89,6 +89,15 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""0942946c-15a2-41b7-b7ef-f51b8ac37562"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -289,6 +298,28 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
                     ""action"": ""Capacity"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""539707f9-e254-41b9-a594-a89184a1c635"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70a65405-99c5-43b7-856a-6b3ef8d706ef"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -310,6 +341,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         m_PlayerController_Attack = m_PlayerController.FindAction("Attack", throwIfNotFound: true);
         m_PlayerController_SwitchDimension = m_PlayerController.FindAction("SwitchDimension", throwIfNotFound: true);
         m_PlayerController_Capacity = m_PlayerController.FindAction("Capacity", throwIfNotFound: true);
+        m_PlayerController_Pause = m_PlayerController.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
     }
@@ -386,6 +418,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerController_Attack;
     private readonly InputAction m_PlayerController_SwitchDimension;
     private readonly InputAction m_PlayerController_Capacity;
+    private readonly InputAction m_PlayerController_Pause;
     public struct PlayerControllerActions
     {
         private @PlayerControlMap m_Wrapper;
@@ -397,6 +430,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_PlayerController_Attack;
         public InputAction @SwitchDimension => m_Wrapper.m_PlayerController_SwitchDimension;
         public InputAction @Capacity => m_Wrapper.m_PlayerController_Capacity;
+        public InputAction @Pause => m_Wrapper.m_PlayerController_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -427,6 +461,9 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
             @Capacity.started += instance.OnCapacity;
             @Capacity.performed += instance.OnCapacity;
             @Capacity.canceled += instance.OnCapacity;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerControllerActions instance)
@@ -452,6 +489,9 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
             @Capacity.started -= instance.OnCapacity;
             @Capacity.performed -= instance.OnCapacity;
             @Capacity.canceled -= instance.OnCapacity;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerControllerActions instance)
@@ -516,6 +556,7 @@ public partial class @PlayerControlMap: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnSwitchDimension(InputAction.CallbackContext context);
         void OnCapacity(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
