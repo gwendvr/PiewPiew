@@ -58,6 +58,15 @@ public class S_EnemyManager : MonoBehaviour
         }
         return m_ennemiesByUniverse[_universe].Count;
     }
+
+    public void AddEnnemyToUniverse(GameObject _ennemy, string _universe)
+    {
+        if (m_ennemiesByUniverse.ContainsKey(_universe))
+        {
+            m_ennemiesByUniverse[_universe].Add(_ennemy);
+            Debug.Log("Ennemy ajouté du dictionnaire : " + _ennemy.name);
+        }
+    }
     #endregion
 
     // Change enemies when we change universe

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class S_Enemy : MonoBehaviour
+public abstract class S_EnemyTuto : MonoBehaviour
 {
     [Header("Enemy Parameters")]
     public string world;
@@ -20,13 +20,8 @@ public abstract class S_Enemy : MonoBehaviour
     public List<GameObject> paths;
     public int index;
 
-    private void Awake()
-    {
-        if ((world.Equals("Blue") && !S_DimensionManager.instance.isDimension1)|| (world.Equals("Violet") && S_DimensionManager.instance.isDimension1))
-        {
-            this.gameObject.SetActive(false);
-        }
-    }
+    [Header("Tuto Reference")]
+    public S_Tuto tuto;
 
     protected virtual void Start()
     {

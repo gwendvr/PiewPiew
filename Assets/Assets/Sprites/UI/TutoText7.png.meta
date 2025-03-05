@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 480d0832cfa5b1845a797dc1c015bc61
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8884183382538046895
+    second: TutoText7_0
+  - first:
+      213: 8841752818263916305
+    second: TutoText7_1
+  - first:
+      213: 4799363799317527687
+    second: TutoText7_2
+  - first:
+      213: -6849013541899642568
+    second: TutoText7_3
+  - first:
+      213: 1773123417336315974
+    second: TutoText7_4
+  - first:
+      213: 6204769280402162248
+    second: TutoText7_5
+  - first:
+      213: -6938665603177963553
+    second: TutoText7_6
+  - first:
+      213: -7001067155647337055
+    second: TutoText7_7
+  - first:
+      213: -5693997669741553020
+    second: TutoText7_8
+  - first:
+      213: 2355292273236545703
+    second: TutoText7_9
+  - first:
+      213: 2592184108624543199
+    second: TutoText7_10
+  - first:
+      213: 3036277145792446005
+    second: TutoText7_11
+  - first:
+      213: -7982279994128938064
+    second: TutoText7_12
+  - first:
+      213: -1387743456598376185
+    second: TutoText7_13
+  - first:
+      213: -6259266455368749330
+    second: TutoText7_14
+  - first:
+      213: -845859812075365289
+    second: TutoText7_15
+  - first:
+      213: -3838279023345691617
+    second: TutoText7_16
+  - first:
+      213: -1090664022295472399
+    second: TutoText7_17
+  - first:
+      213: 1701104688709277537
+    second: TutoText7_18
+  - first:
+      213: 2620956851289685136
+    second: TutoText7_19
+  - first:
+      213: 843761761857993289
+    second: TutoText7_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TutoText7_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 93
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1523464b84a05b480800000000000000
+      internalID: -8884183382538046895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 93
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ffd64b75734ba70800000000000000
+      internalID: 8841752818263916305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_2
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 93
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78cb03682f3ca9240800000000000000
+      internalID: 4799363799317527687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 93
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8395b35a87a63f0a0800000000000000
+      internalID: -6849013541899642568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_4
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 93
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64002498a566b9810800000000000000
+      internalID: 1773123417336315974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_5
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 89
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84280a749c4cb1650800000000000000
+      internalID: 6204769280402162248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_6
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 94
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdf1b538568e4bf90800000000000000
+      internalID: -6938665603177963553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_7
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 107
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad6cf2e38637de90800000000000000
+      internalID: -7001067155647337055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_8
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 93
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a1727994bdaf0b0800000000000000
+      internalID: -5693997669741553020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_9
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 93
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a09c78f7ddafa020800000000000000
+      internalID: 2355292273236545703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_10
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 93
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdd7afa76b949f320800000000000000
+      internalID: 2592184108624543199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_11
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 93
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e789a2af5032a20800000000000000
+      internalID: 3036277145792446005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_12
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 93
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bbcc3423ae393190800000000000000
+      internalID: -7982279994128938064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_13
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 93
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701c416cdaebdbce0800000000000000
+      internalID: -1387743456598376185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_14
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 93
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee2a35625e9229a0800000000000000
+      internalID: -6259266455368749330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_15
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 93
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75c18738bf6e244f0800000000000000
+      internalID: -845859812075365289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_16
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 89
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1495a87091bbbac0800000000000000
+      internalID: -3838279023345691617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_17
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 94
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f697cda9de2dd0f0800000000000000
+      internalID: -1090664022295472399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_18
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 93
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167944893b98b9710800000000000000
+      internalID: 1701104688709277537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_19
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 93
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09c7fbcae528f5420800000000000000
+      internalID: 2620956851289685136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText7_20
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 93
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94a7a9a1ad4a5bb00800000000000000
+      internalID: 843761761857993289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TutoText7_0: -8884183382538046895
+      TutoText7_1: 8841752818263916305
+      TutoText7_10: 2592184108624543199
+      TutoText7_11: 3036277145792446005
+      TutoText7_12: -7982279994128938064
+      TutoText7_13: -1387743456598376185
+      TutoText7_14: -6259266455368749330
+      TutoText7_15: -845859812075365289
+      TutoText7_16: -3838279023345691617
+      TutoText7_17: -1090664022295472399
+      TutoText7_18: 1701104688709277537
+      TutoText7_19: 2620956851289685136
+      TutoText7_2: 4799363799317527687
+      TutoText7_20: 843761761857993289
+      TutoText7_3: -6849013541899642568
+      TutoText7_4: 1773123417336315974
+      TutoText7_5: 6204769280402162248
+      TutoText7_6: -6938665603177963553
+      TutoText7_7: -7001067155647337055
+      TutoText7_8: -5693997669741553020
+      TutoText7_9: 2355292273236545703
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
