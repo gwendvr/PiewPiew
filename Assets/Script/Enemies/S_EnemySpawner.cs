@@ -25,7 +25,9 @@ public class S_EnemySpawner : MonoBehaviour
     {
         if (spawnPoints.Length == 0 || blueUniverseEnemies.Length == 0 || violetUniverseEnemies.Length == 0)
         {
-            Debug.LogError("spawn point is not defined in " + gameObject.name);
+            S_EnemyManager.instance.RegisterEnemies("Blue", new List<GameObject>());
+            S_EnemyManager.instance.RegisterEnemies("Violet", new List<GameObject>());
+            //nothing to spawn at the start
             return;
         }
 
@@ -34,6 +36,34 @@ public class S_EnemySpawner : MonoBehaviour
 
         S_EnemyManager.instance.RegisterEnemies("Blue", m_spawnedEnemiesBlue);
         S_EnemyManager.instance.RegisterEnemies("Violet", m_spawnedEnemiesViolet);
+    }
+
+    public void SpawnEnemies(GameObject[] listEnnemies, GameObject[] listPositions,string universe)
+    {
+        if (listEnnemies.Length == 0 || listPositions.Length == 0)
+        {
+            Debug.LogError("spawn point is not defined in " + gameObject.name);
+            return;
+        }
+
+        foreach (var _spawnPoint in listPositions)
+        {
+            var _pos = _spawnPoint.GetComponent<S_Path>();
+            GameObject _randomEnemyPrefab = listEnnemies[Random.Range(0, listEnnemies.Length)];
+            GameObject _spawnedEnemy = Instantiate(_randomEnemyPrefab, _pos.paths[0].transform.position, _pos.paths[0].transform.rotation);
+            var enemy = _spawnedEnemy.GetComponent<S_Enemy>();
+            enemy.pathLinked = "None";
+
+            S_EnemyManager.instance.AddEnnemyToUniverse(_spawnedEnemy,universe);
+
+            if (universe == "Blue")
+            {
+                m_spawnedEnemiesBlue.Add(_spawnedEnemy);
+            }else if (universe == "Violet")
+            {
+                m_spawnedEnemiesViolet.Add(_spawnedEnemy);
+            }
+        }
     }
 
     private void SpawnUniverseEnemies(GameObject[] universeEnemies, List<GameObject> spawnedEnemies, bool isActive)

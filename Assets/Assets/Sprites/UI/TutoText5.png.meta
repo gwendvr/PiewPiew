@@ -1,0 +1,1313 @@
+fileFormatVersion: 2
+guid: 0cd6e4e16e21e114da679cb843ae0e84
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9037074740481418986
+    second: TutoText5_0
+  - first:
+      213: -1428496782712083943
+    second: TutoText5_1
+  - first:
+      213: -8561628977411609622
+    second: TutoText5_2
+  - first:
+      213: 4148604024649160173
+    second: TutoText5_3
+  - first:
+      213: -3106658869825153350
+    second: TutoText5_4
+  - first:
+      213: -7255098243758965442
+    second: TutoText5_5
+  - first:
+      213: 5167628030068693652
+    second: TutoText5_6
+  - first:
+      213: -141704462659842547
+    second: TutoText5_7
+  - first:
+      213: -3522322779234274763
+    second: TutoText5_8
+  - first:
+      213: 6182897774377334142
+    second: TutoText5_9
+  - first:
+      213: -5219166613083737148
+    second: TutoText5_10
+  - first:
+      213: -4217634470419622313
+    second: TutoText5_11
+  - first:
+      213: -5978733175620731685
+    second: TutoText5_12
+  - first:
+      213: 1320442228144704817
+    second: TutoText5_13
+  - first:
+      213: -8200857362629518686
+    second: TutoText5_14
+  - first:
+      213: -5855197079599762070
+    second: TutoText5_15
+  - first:
+      213: 2054111586496125481
+    second: TutoText5_16
+  - first:
+      213: -8424979850975060057
+    second: TutoText5_17
+  - first:
+      213: 5996007766236764309
+    second: TutoText5_18
+  - first:
+      213: -369126920082934261
+    second: TutoText5_19
+  - first:
+      213: -7016022991250348060
+    second: TutoText5_20
+  - first:
+      213: -5504535932362507917
+    second: TutoText5_21
+  - first:
+      213: -5585639990024686059
+    second: TutoText5_22
+  - first:
+      213: -3736216988214446131
+    second: TutoText5_23
+  - first:
+      213: -7973666527067591208
+    second: TutoText5_24
+  - first:
+      213: -4133198866987922763
+    second: TutoText5_25
+  - first:
+      213: 6129668607951067837
+    second: TutoText5_26
+  - first:
+      213: -5650444620569460038
+    second: TutoText5_27
+  - first:
+      213: -1994500264597054293
+    second: TutoText5_28
+  - first:
+      213: 5357761156857556277
+    second: TutoText5_29
+  - first:
+      213: -6241622800916506625
+    second: TutoText5_30
+  - first:
+      213: -8400168476751188247
+    second: TutoText5_31
+  - first:
+      213: 6321295672181334466
+    second: TutoText5_32
+  - first:
+      213: 5840154675557036746
+    second: TutoText5_33
+  - first:
+      213: -1184490429915992726
+    second: TutoText5_34
+  - first:
+      213: -3949217610685674695
+    second: TutoText5_35
+  - first:
+      213: -932573533142539956
+    second: TutoText5_36
+  - first:
+      213: 5869099516330771777
+    second: TutoText5_37
+  - first:
+      213: -6644475053168930711
+    second: TutoText5_38
+  - first:
+      213: -2751001378112510213
+    second: TutoText5_39
+  - first:
+      213: 993155469025116768
+    second: TutoText5_40
+  - first:
+      213: 4330966255836394834
+    second: TutoText5_41
+  - first:
+      213: -831656416368077629
+    second: TutoText5_42
+  - first:
+      213: -7204074033660808663
+    second: TutoText5_43
+  - first:
+      213: -2486716513011769141
+    second: TutoText5_44
+  - first:
+      213: 6206489089898539600
+    second: TutoText5_45
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TutoText5_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 116
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61913fc676cd59280800000000000000
+      internalID: -9037074740481418986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 116
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a68af9eb5fc2ce0800000000000000
+      internalID: -1428496782712083943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 117
+        width: 25
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeba0b67ecbfe2980800000000000000
+      internalID: -8561628977411609622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 116
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de518f2516dc29930800000000000000
+      internalID: 4148604024649160173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_4
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 116
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab651c9b73ee2e4d0800000000000000
+      internalID: -3106658869825153350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_5
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 116
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3dbf222696b05b90800000000000000
+      internalID: -7255098243758965442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_6
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 116
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a9897605a17b740800000000000000
+      internalID: 5167628030068693652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_7
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 117
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e8210ca80980ef0800000000000000
+      internalID: -141704462659842547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_8
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 130
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532797728123e1fc0800000000000000
+      internalID: -3522322779234274763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_9
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 116
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75705474c01ec550800000000000000
+      internalID: 6182897774377334142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_10
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 116
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3b0932e9bc197b0800000000000000
+      internalID: -5219166613083737148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_11
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 116
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 756123e8bc3f775c0800000000000000
+      internalID: -4217634470419622313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_12
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 116
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc784c7ad5470da0800000000000000
+      internalID: -5978733175620731685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_13
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 116
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d8df2e537235210800000000000000
+      internalID: 1320442228144704817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_14
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 116
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa12debda3b03e80800000000000000
+      internalID: -8200857362629518686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 117
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a653d8c37492ebea0800000000000000
+      internalID: -5855197079599762070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_16
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 130
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a9d12da9ba18c10800000000000000
+      internalID: 2054111586496125481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_17
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 116
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7afdec68675741b80800000000000000
+      internalID: -8424979850975060057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_18
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 112
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59896019b49163350800000000000000
+      internalID: 5996007766236764309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_19
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 112
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b063c6b950990eaf0800000000000000
+      internalID: -369126920082934261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_20
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 116
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7ac8e034412ae90800000000000000
+      internalID: -7016022991250348060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_21
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 116
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 379b82adbb5fb93b0800000000000000
+      internalID: -5504535932362507917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_22
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 116
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516bc57e502db72b0800000000000000
+      internalID: -5585639990024686059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_23
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 116
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc7b2bdc17a462cc0800000000000000
+      internalID: -3736216988214446131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_24
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 116
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dda6b83a88d75190800000000000000
+      internalID: -7973666527067591208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_25
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 87
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba4323778de3a6c0800000000000000
+      internalID: -4133198866987922763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_26
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 87
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dba59cf5f15f01550800000000000000
+      internalID: 6129668607951067837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_27
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 87
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab2c0ff0e869591b0800000000000000
+      internalID: -5650444620569460038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_28
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 87
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac1540a39c1254e0800000000000000
+      internalID: -1994500264597054293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_29
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 87
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d61e1b2679a5a40800000000000000
+      internalID: 5357761156857556277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_30
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 87
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff79461d12d4169a0800000000000000
+      internalID: -6241622800916506625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_31
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 87
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eeafc1c64b9c6b80800000000000000
+      internalID: -8400168476751188247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_32
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 87
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c125941ce0c9b750800000000000000
+      internalID: 6321295672181334466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_33
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 87
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac2f9e52cb56c0150800000000000000
+      internalID: 5840154675557036746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_34
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 83
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6de10dca38df8fe0800000000000000
+      internalID: -1184490429915992726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_35
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 87
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b0d56c18f8139c0800000000000000
+      internalID: -3949217610685674695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_36
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 87
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41ab160055de03f0800000000000000
+      internalID: -932573533142539956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_37
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 87
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145005e0aea337150800000000000000
+      internalID: 5869099516330771777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_38
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 54
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 960dbe0a4251ac3a0800000000000000
+      internalID: -6644475053168930711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_39
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 58
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf66ef072da72d9d0800000000000000
+      internalID: -2751001378112510213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_40
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 58
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0628af913a568cd00800000000000000
+      internalID: 993155469025116768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_41
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 58
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255f45dfcdeaa1c30800000000000000
+      internalID: 4330966255836394834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_42
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 58
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c4d43745ec5574f0800000000000000
+      internalID: -831656416368077629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_43
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 58
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9223800d5dcf50c90800000000000000
+      internalID: -7204074033660808663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_44
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 58
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc0e5d0b1886d7dd0800000000000000
+      internalID: -2486716513011769141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutoText5_45
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 54
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05a6db1a1f0e12650800000000000000
+      internalID: 6206489089898539600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TutoText5_0: -9037074740481418986
+      TutoText5_1: -1428496782712083943
+      TutoText5_10: -5219166613083737148
+      TutoText5_11: -4217634470419622313
+      TutoText5_12: -5978733175620731685
+      TutoText5_13: 1320442228144704817
+      TutoText5_14: -8200857362629518686
+      TutoText5_15: -5855197079599762070
+      TutoText5_16: 2054111586496125481
+      TutoText5_17: -8424979850975060057
+      TutoText5_18: 5996007766236764309
+      TutoText5_19: -369126920082934261
+      TutoText5_2: -8561628977411609622
+      TutoText5_20: -7016022991250348060
+      TutoText5_21: -5504535932362507917
+      TutoText5_22: -5585639990024686059
+      TutoText5_23: -3736216988214446131
+      TutoText5_24: -7973666527067591208
+      TutoText5_25: -4133198866987922763
+      TutoText5_26: 6129668607951067837
+      TutoText5_27: -5650444620569460038
+      TutoText5_28: -1994500264597054293
+      TutoText5_29: 5357761156857556277
+      TutoText5_3: 4148604024649160173
+      TutoText5_30: -6241622800916506625
+      TutoText5_31: -8400168476751188247
+      TutoText5_32: 6321295672181334466
+      TutoText5_33: 5840154675557036746
+      TutoText5_34: -1184490429915992726
+      TutoText5_35: -3949217610685674695
+      TutoText5_36: -932573533142539956
+      TutoText5_37: 5869099516330771777
+      TutoText5_38: -6644475053168930711
+      TutoText5_39: -2751001378112510213
+      TutoText5_4: -3106658869825153350
+      TutoText5_40: 993155469025116768
+      TutoText5_41: 4330966255836394834
+      TutoText5_42: -831656416368077629
+      TutoText5_43: -7204074033660808663
+      TutoText5_44: -2486716513011769141
+      TutoText5_45: 6206489089898539600
+      TutoText5_5: -7255098243758965442
+      TutoText5_6: 5167628030068693652
+      TutoText5_7: -141704462659842547
+      TutoText5_8: -3522322779234274763
+      TutoText5_9: 6182897774377334142
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
