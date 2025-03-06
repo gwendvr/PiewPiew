@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3583705749786915628}
   - component: {fileID: 2786083887783405231}
   - component: {fileID: 3682410342667059822}
-  - component: {fileID: 3493821835583677772}
   - component: {fileID: 3274011018475736605}
+  - component: {fileID: -2230282335002247631}
   m_Layer: 0
-  m_Name: chests_1
+  m_Name: chestsWeaponTuto
   m_TagString: Lootbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5199060892446279199, guid: 7d719cccf8127bf478771c6284cdbfb9, type: 3}
+  m_Sprite: {fileID: -5540108664736289102, guid: 7d719cccf8127bf478771c6284cdbfb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,21 +112,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3493821835583677772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3976197420574324653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff51e4b7b46d1b1469b3944c62981621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableLoots:
-  - {fileID: 3143809825004184784, guid: 9456ae5f668b3c14b8927c895a53b5e8, type: 3}
-  OpenAnim: {fileID: 3682410342667059822}
 --- !u!61 &3274011018475736605
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,3 +158,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.25823212, y: 0.218586}
   m_EdgeRadius: 0
+--- !u!114 &-2230282335002247631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976197420574324653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c4c973a468d4a1489955f13f3528f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableLoots: []
+  OpenAnim: {fileID: 3682410342667059822}

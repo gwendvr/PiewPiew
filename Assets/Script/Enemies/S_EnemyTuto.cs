@@ -83,6 +83,7 @@ public abstract class S_EnemyTuto : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            S_Tuto.instance
         }
     }
 
