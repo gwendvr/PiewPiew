@@ -64,7 +64,7 @@ public class S_EnemyManager : MonoBehaviour
         if (m_ennemiesByUniverse.ContainsKey(_universe))
         {
             m_ennemiesByUniverse[_universe].Add(_ennemy);
-            Debug.Log("Ennemy ajouté du dictionnaire : " + _ennemy.name);
+            //Debug.Log("Ennemy ajouté du dictionnaire : " + _ennemy.name);
         }
     }
     #endregion

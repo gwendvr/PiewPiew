@@ -3,12 +3,29 @@ using UnityEngine;
 public class S_TutoDoor : MonoBehaviour
 {
     public GameObject tilemap;
+    public bool isDoorOpen = false;
 
-    private void openDoor(Collider2D collision)
+    private void Start()
     {
-        if (collision.gameObject.tag.Equals("Player"))
+        if (isDoorOpen)
+        {
+            tilemap.SetActive(true);
+        }
+        else
         {
             tilemap.SetActive(false);
         }
+    }
+
+    public void openDoor()
+    {
+        tilemap.SetActive(false);
+        isDoorOpen = true;
+    }
+
+    public void closeDoor()
+    {
+        tilemap.SetActive(true);
+        isDoorOpen = false;
     }
 }

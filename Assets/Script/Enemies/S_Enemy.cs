@@ -83,7 +83,7 @@ public abstract class S_Enemy : MonoBehaviour
         }
     }
 
-    private void CheckHealth()
+    protected virtual void CheckHealth()
     {
         if (health <= 0)
         {
