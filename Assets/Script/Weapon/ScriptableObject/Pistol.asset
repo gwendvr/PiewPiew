@@ -21,5 +21,5 @@ MonoBehaviour:
   bulletSpeed: 15
   throwStrenght: 50
   shotCouldown: 0.4
-  bulletInMagazine: 12
+  bulletInMagazine: 100
   ShotAudioName: PistolShot

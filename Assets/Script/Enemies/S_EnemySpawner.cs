@@ -25,7 +25,9 @@ public class S_EnemySpawner : MonoBehaviour
     {
         if (spawnPoints.Length == 0 || blueUniverseEnemies.Length == 0 || violetUniverseEnemies.Length == 0)
         {
-            Debug.LogError("spawn point is not defined in " + gameObject.name);
+            S_EnemyManager.instance.RegisterEnemies("Blue", new List<GameObject>());
+            S_EnemyManager.instance.RegisterEnemies("Violet", new List<GameObject>());
+            //nothing to spawn at the start
             return;
         }
 

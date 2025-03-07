@@ -11,6 +11,7 @@ TagManager:
   - Potion
   - EnemyBullet
   - PlayerAttack
+  - Lootbox
   layers:
   - Default
   - TransparentFX

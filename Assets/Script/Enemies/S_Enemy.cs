@@ -20,11 +20,20 @@ public abstract class S_Enemy : MonoBehaviour
     public List<GameObject> paths;
     public int index;
 
+    private void Awake()
+    {
+        if ((world.Equals("Blue") && !S_DimensionManager.instance.isDimension1)|| (world.Equals("Violet") && S_DimensionManager.instance.isDimension1))
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
     protected virtual void Start()
     {
         player = S_EnemyManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         InitializePath();
+        this.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     protected virtual void Update()
@@ -38,8 +47,12 @@ public abstract class S_Enemy : MonoBehaviour
         S_EnemyManager.instance.RemoveEnemyFromUniverse(world, this.gameObject);
     }
 
-    private void InitializePath()
+    protected virtual void InitializePath()
     {
+        if (pathLinked == "None")
+        {
+            return;
+        }
         pathsParent = S_EnemyManager.instance.spawnPoints;
         foreach (GameObject path in pathsParent)
         {
@@ -60,6 +73,10 @@ public abstract class S_Enemy : MonoBehaviour
         {
             agent.destination = player.position;
         }
+        else if (pathLinked == "None")
+        {
+            return;
+        }
         else if (Vector3.Distance(transform.position, agent.destination) <= 0.5)
         {
             index = (index >= paths.Count - 1) ? 0 : index + 1;
@@ -67,7 +84,7 @@ public abstract class S_Enemy : MonoBehaviour
         }
     }
 
-    private void CheckHealth()
+    protected virtual void CheckHealth()
     {
         if (health <= 0)
         {

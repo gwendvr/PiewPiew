@@ -5850,7 +5850,7 @@ GameObject:
   - component: {fileID: 6191087956875477450}
   m_Layer: 7
   m_Name: PlayerController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5900,11 +5900,13 @@ MonoBehaviour:
   m_hitPitchMax: 1.1
   m_hitPitchMin: 0.9
   m_hand: {fileID: 2045349393085732983}
+  m_weapon: {fileID: 0}
   m_dimensionFilter: {fileID: 0}
   m_dashStrength: 0
   m_dashDuration: 0
   m_dashFXEffect: {fileID: 0}
   m_couldownPicture: {fileID: 0}
+  m_circulareAttack: {fileID: 0}
   m_circulareDamage: 0
   m_circulareDuration: 0
   m_circulareFXEffect: {fileID: 8238089937317614372}
@@ -6046,6 +6048,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ac4a498b-027b-4aeb-930f-d0f34d5b5720
     m_ActionName: 'PlayerController/Dash[/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0942946c-15a2-41b7-b7ef-f51b8ac37562
+    m_ActionName: 'PlayerController/Pause[/Keyboard/escape,/Keyboard/p]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerController
