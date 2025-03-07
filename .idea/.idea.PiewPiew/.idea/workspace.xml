@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="526b1f34-80fc-40e9-89b0-9e3e0718b13f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PiewPiew/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PiewPiew/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Player/PrefabsArchives/PlayerController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Player/PrefabsArchives/PlayerController.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SC_MapMain.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SC_MapMain.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SC_MapTuto.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SC_MapTuto.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Tuto/S_Tuto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Tuto/S_Tuto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Menu/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Menu/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +103,7 @@
       <workItem from="1740996549111" duration="1108000" />
       <workItem from="1741331542087" duration="172000" />
       <workItem from="1741331734148" duration="7956000" />
-      <workItem from="1741342556100" duration="1570000" />
+      <workItem from="1741342556100" duration="2599000" />
     </task>
     <servers />
   </component>
