@@ -5900,6 +5900,7 @@ MonoBehaviour:
   m_hitPitchMax: 1.1
   m_hitPitchMin: 0.9
   m_hand: {fileID: 2045349393085732983}
+  m_weapon: {fileID: 0}
   m_dimensionFilter: {fileID: 0}
   m_dashStrength: 0
   m_dashDuration: 0

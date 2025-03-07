@@ -33,6 +33,7 @@ public abstract class S_Enemy : MonoBehaviour
         player = S_EnemyManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         InitializePath();
+        this.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     protected virtual void Update()

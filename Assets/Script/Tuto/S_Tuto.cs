@@ -130,7 +130,6 @@ public class S_Tuto : MonoBehaviour
 
     public void EndTuto()
     {
-        Debug.Log("End tuto");
-        SceneManager.LoadScene("SC_Menu");
+        SceneManager.LoadScene("SC_MapMain");
     }
 }

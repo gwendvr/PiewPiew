@@ -8,14 +8,7 @@ public class S_EnemyMeleeTuto : S_Enemy
     public float damage;
     public float range;
     public LayerMask playerLayer;
-
-    protected override void Start()
-    {
-        player = S_EnemyManager.instance.player.transform;
-        agent = GetComponent<NavMeshAgent>();
-        InitializePath();
-        this.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
-    }
+    
 
     public override void Attack()
     {
