@@ -23,3 +23,10 @@ Le projet **Piew Piew** a été développé par une équipe talentueuse, compren
 Pour en savoir plus sur la structure du projet, les systèmes de gameplay, et les détails techniques, vous pouvez consulter la **documentation technique complète ici** :
 
 [**Documentation Technique de Piew Piew**](<https://sharp-factory-ffd.notion.site/Documentation-technique-Piew-Piew-1936b2a92fc380e68f31fcf9db686359>)
+
+
+## **Lien Itchi.io**
+
+La page de télechargement du jeu : https://scorpiboos.itch.io/piewpiew
+
+
