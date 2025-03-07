@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
 public class WeaponSelector:EditorWindow
 {
     private GameObject[] listWeapon;
@@ -32,3 +33,4 @@ public class WeaponSelector:EditorWindow
         }
     }
 }
+#endif
