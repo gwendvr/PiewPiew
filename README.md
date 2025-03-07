@@ -15,8 +15,8 @@ Le projet **Piew Piew** a été développé par une équipe talentueuse, compren
 
 - **Damien**
 - **Gwen**
-- ...
-- ...
+- **Clément**
+- **Christopher**
 
 ## **Documentation Technique**
 
