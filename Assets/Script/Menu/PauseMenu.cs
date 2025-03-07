@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -36,6 +37,17 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f; // Mettre le jeu en pause
         isPaused = true;
+    }
+
+    public void SaveAndQuit()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            GameManager.instance.SaveGame(player.transform);
+        }
+
+        SceneManager.LoadScene("SC_Menu");
     }
 }
 
