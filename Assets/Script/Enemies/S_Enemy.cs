@@ -46,7 +46,7 @@ public abstract class S_Enemy : MonoBehaviour
         S_EnemyManager.instance.RemoveEnemyFromUniverse(world, this.gameObject);
     }
 
-    private void InitializePath()
+    protected virtual void InitializePath()
     {
         if (pathLinked == "None")
         {

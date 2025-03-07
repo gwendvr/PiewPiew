@@ -5,15 +5,17 @@ public class LootBox : MonoBehaviour
 {
     public List<GameObject> availableLoots;
     [SerializeField] private Animator OpenAnim;
+    public bool isOpen = false;
 
     // Appelé lorsque le joueur interagit avec le lootbox
     public void Open()
     {
-        if (availableLoots.Count > 0)
+        if (availableLoots.Count > 0 && !isOpen)
         {
             OpenAnim.SetBool("Open",true);
             GameObject randomLoot = availableLoots[Random.Range(0, availableLoots.Count)];
             AwardLoot(randomLoot);
+            isOpen = true;
         }
     }
 

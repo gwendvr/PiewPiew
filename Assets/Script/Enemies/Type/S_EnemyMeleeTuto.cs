@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class S_EnemyMeleeTuto : S_Enemy
 {
@@ -8,9 +9,12 @@ public class S_EnemyMeleeTuto : S_Enemy
     public float range;
     public LayerMask playerLayer;
 
-    protected override void HandleMovement()
+    protected override void Start()
     {
-        base.HandleMovement();
+        player = S_EnemyManager.instance.player.transform;
+        agent = GetComponent<NavMeshAgent>();
+        InitializePath();
+        this.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     public override void Attack()

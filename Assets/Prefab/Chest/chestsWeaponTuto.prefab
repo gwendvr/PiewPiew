@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3583705749786915628}
   - component: {fileID: 2786083887783405231}
   - component: {fileID: 3682410342667059822}
+  - component: {fileID: 3493821835583677772}
   - component: {fileID: 3274011018475736605}
-  - component: {fileID: -2230282335002247631}
   m_Layer: 0
   m_Name: chestsWeaponTuto
   m_TagString: Lootbox
@@ -112,6 +112,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3493821835583677772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976197420574324653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff51e4b7b46d1b1469b3944c62981621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableLoots:
+  - {fileID: 6050810682658150796, guid: a950ebf993e84244bbd290d6f7da492c, type: 3}
+  OpenAnim: {fileID: 3682410342667059822}
 --- !u!61 &3274011018475736605
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,18 +173,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.25823212, y: 0.218586}
   m_EdgeRadius: 0
---- !u!114 &-2230282335002247631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3976197420574324653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c4c973a468d4a1489955f13f3528f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableLoots:
-  - {fileID: 6050810682658150796, guid: a950ebf993e84244bbd290d6f7da492c, type: 3}
-  OpenAnim: {fileID: 3682410342667059822}

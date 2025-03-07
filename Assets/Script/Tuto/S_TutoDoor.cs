@@ -9,11 +9,11 @@ public class S_TutoDoor : MonoBehaviour
     {
         if (isDoorOpen)
         {
-            tilemap.SetActive(true);
+            tilemap.SetActive(false);
         }
         else
         {
-            tilemap.SetActive(false);
+            tilemap.SetActive(true);
         }
     }
 

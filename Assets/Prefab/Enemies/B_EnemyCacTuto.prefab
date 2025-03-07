@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4571937179612465678}
   - component: {fileID: 7500023866899122605}
   - component: {fileID: 7802113206544902058}
-  - component: {fileID: 8969739200569698973}
   - component: {fileID: -6892096124326111167}
+  - component: {fileID: 614486352971240395}
   m_Layer: 11
   m_Name: B_EnemyCacTuto
   m_TagString: Ennemy
@@ -159,18 +159,6 @@ NavMeshAgent:
   m_BaseOffset: 0.22
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8969739200569698973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633577685476173289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-6892096124326111167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: Blue
-  health: 40
+  health: 1
   maxDistance: 4
   minDistance: 1
   pathLinked: 
@@ -196,4 +184,16 @@ MonoBehaviour:
   range: 0
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
+--- !u!114 &614486352971240395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633577685476173289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
