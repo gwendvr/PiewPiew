@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Aucune sauvegarde trouvée, chargement de la scène par défaut.");
-            SceneManager.LoadScene("SC_MapMain");
+            SceneManager.LoadScene("SC_MapTuto");
         }
     }
 
