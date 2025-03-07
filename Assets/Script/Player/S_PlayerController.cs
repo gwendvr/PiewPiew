@@ -57,11 +57,10 @@ public class S_PlayerController : MonoBehaviour
 
     [Space(10)]
     [Header("Weapon")]
-    [SerializeField]
-    private UnityEngine.Transform m_hand;
-    private S_Weapon m_weapon;
     private List<S_Weapon> m_weaponOnGround = new List<S_Weapon>();
     private bool m_isShooting = false;
+    public UnityEngine.Transform m_hand;
+    public S_Weapon m_weapon;
 
     [Space(10)]
     [Header("Dimension")]

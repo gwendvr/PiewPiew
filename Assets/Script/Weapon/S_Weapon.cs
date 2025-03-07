@@ -6,9 +6,9 @@ public class S_Weapon : MonoBehaviour
 
     [Header("Components")]
     [SerializeField]
-    private SpriteRenderer m_spriteRenderer;
+    protected SpriteRenderer m_spriteRenderer;
     [SerializeField]
-    private Rigidbody2D m_rb;
+    protected Rigidbody2D m_rb;
 
 
     [Header("Bullet")]
@@ -81,7 +81,7 @@ public class S_Weapon : MonoBehaviour
         S_AudioManager.instance.PlayAudio(data.ShotAudioName);
     }
 
-    public void Taken()
+    public virtual void Taken()
     {
         m_rb.bodyType = RigidbodyType2D.Kinematic;
         m_spriteRenderer.sprite = data.topSprite;
